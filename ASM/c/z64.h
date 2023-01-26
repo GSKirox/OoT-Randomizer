@@ -1673,6 +1673,7 @@ typedef struct EnGSwitch
 #define z64_Rand_ZeroOne_addr                   0x800CDCCC
 #define z64_RandSeed_addr                       0x800CDCC0
 #define z64_ModifyTempo_addr                    0x800C64A0
+#define z64_Camera_RequestQuake_addr            0x800497A4
 
 /* rom addresses */
 #define z64_icon_item_static_vaddr              0x007BD000
@@ -1751,6 +1752,7 @@ typedef float (*z64_Rand_ZeroOne_proc)();
 typedef void(*z64_RandSeed_proc) (uint32_t seed);
 
 typedef void(*z64_ModifyTempo_proc)(float scaleTempoAndFreq, uint8_t duration);
+typedef void(*z64_Camera_RequestQuake_proc)(void* camera, int32_t unused, int16_t y, int32_t duration);
 
 /* data */
 #define z64_file_mq             (*(OSMesgQueue*)      z64_file_mq_addr)
@@ -1816,8 +1818,6 @@ typedef void(*z64_ModifyTempo_proc)(float scaleTempoAndFreq, uint8_t duration);
 #define z64_RandSeed            ((z64_RandSeed_proc)z64_RandSeed_addr)
 #define z64_Rand_ZeroOne        ((z64_Rand_ZeroOne_proc)z64_Rand_ZeroOne_addr)
 
-#define z64_ModifyTempo        ((z64_ModifyTempo_proc)z64_ModifyTempo_addr)
-
 #define z64_ObjectSpawn         ((z64_ObjectSpawn_proc)z64_ObjectSpawn_addr)
 #define z64_ObjectIndex         ((z64_ObjectIndex_proc)z64_ObjectIndex_addr)
 #define z64_ObjectIsLoaded      ((z64_ObjectIsLoaded_proc)z64_ObjectIsLoaded_addr)
@@ -1830,5 +1830,8 @@ typedef void(*z64_ModifyTempo_proc)(float scaleTempoAndFreq, uint8_t duration);
 #define z64_Item_DropCollectible2 ((z64_Item_DropCollectible_proc)z64_Item_DropCollectible2_addr)
 #define z64_Gfx_DrawDListOpa ((z64_Gfx_DrawDListOpa_proc)z64_Gfx_DrawDListOpa_addr)
 #define z64_Math_SinS ((z64_Math_SinS_proc)z64_Math_SinS_addr)
+
+#define z64_ModifyTempo        ((z64_ModifyTempo_proc)z64_ModifyTempo_addr)
+#define z64_Camera_RequestQuake ((z64_Camera_RequestQuake_proc)z64_Camera_RequestQuake_addr)
 
 #endif
