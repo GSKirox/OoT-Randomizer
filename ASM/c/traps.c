@@ -11,9 +11,6 @@ const int trap_text_height = 10;
 //z64_adjustlights(&z64_game, 1.0f, 0.0f, 0.1f, 0.0f);
 
 
-typedef void(*Camera_RequestQuake)(void* camera, int32_t unused, int16_t y, int32_t duration);
-#define z64_Camera_RequestQuake   ((Camera_RequestQuake)      0x800497A4)
-
 struct traps_ctxt_t {
     float             speed_multiplier;
     uint8_t           speed_multiplier_seconds;
@@ -91,14 +88,14 @@ void manage_traps() {
             z64_LinkDamage(&z64_game, &z64_link, 0x04, 0, 0, 0x14);
         }
         // Another shock 5 secs later
-        if (framesShock / 100 == 1) {
+        if (framesShock == 100) {
             // Thunder
             z64_Audio_PlaySoundGeneral(0x282E, (void *)0x80104394, 0x04, (float*)0x801043A0, (float*)0x801043A0, (uint8_t *)0x801043A8);
 
             z64_LinkDamage(&z64_game, &z64_link, 0x04, 0, 0, 0x14);
         }
         // Another shock 5 secs later
-         if (framesShock / 200 == 1) {
+         if (framesShock == 200) {
             // Thunder
             z64_Audio_PlaySoundGeneral(0x282E, (void *)0x80104394, 0x04, (float*)0x801043A0, (float*)0x801043A0, (uint8_t *)0x801043A8);
 
@@ -120,14 +117,14 @@ void manage_traps() {
         }
 
         // Another bonk 5 secs later
-        if (framesBonk / 100 == 1) {
+        if (framesBonk == 100) {
             // Hammer bonk
             z64_Audio_PlaySoundGeneral(0x180A, (void *)0x80104394, 0x04, (float*)0x801043A0, (float*)0x801043A0, (uint8_t *)0x801043A8);
 
             z64_LinkDamage(&z64_game, &z64_link, 0x01, 0, 0, 0x14);
         }
         // Another bonk 5 secs later
-        if (framesBonk / 200 == 1) {
+        if (framesBonk == 200) {
             // Hammer bonk
             z64_Audio_PlaySoundGeneral(0x180A, (void *)0x80104394, 0x04, (float*)0x801043A0, (float*)0x801043A0, (uint8_t *)0x801043A8);
 
@@ -167,7 +164,7 @@ void manage_traps() {
 
     /* No Z */
     if (CAN_DRAW_OR_APPLY_EFFECT && traps_ctxt.no_z_seconds > 0 && traps_ctxt.no_z) {
-        if (framesNoZ / 20 < traps_ctxt.no_z_seconds) {
+        if (framesNoZ < traps_ctxt.no_z_seconds * 20) {
             z64_game.common.input[0].raw.pad.z = 0;
             z64_game.common.input[0].pad_pressed.z = 0;
 
@@ -182,7 +179,7 @@ void manage_traps() {
 
     /* No B */
     if (CAN_DRAW_OR_APPLY_EFFECT && traps_ctxt.no_b_seconds > 0 && traps_ctxt.no_b) {
-        if (framesNoB / 20 < traps_ctxt.no_b_seconds) {
+        if (framesNoB < traps_ctxt.no_b_seconds * 20) {
             z64_game.common.input[0].raw.pad.b = 0;
             z64_game.common.input[0].pad_pressed.b = 0;
 
@@ -197,7 +194,7 @@ void manage_traps() {
 
     /* Reverse Controls */
     if (CAN_DRAW_OR_APPLY_EFFECT && traps_ctxt.reverse_controls_seconds > 0 && traps_ctxt.reverse_controls) {
-        if (framesReverse / 20 < traps_ctxt.reverse_controls_seconds) {
+        if (framesReverse < traps_ctxt.reverse_controls_seconds * 20) {
             z64_game.common.input[0].raw.x = -z64_game.common.input[0].raw.x;
             z64_game.common.input[0].raw.y = -z64_game.common.input[0].raw.y;
             z64_game.common.input[0].x_diff = -z64_game.common.input[0].x_diff;
@@ -216,7 +213,7 @@ void manage_traps() {
 
     /* Sound trap : play a sound every 10 frames */
     if (traps_ctxt.sound_seconds > 0 && traps_ctxt.sound) {
-        if (framesSound / 20 < traps_ctxt.sound_seconds) {
+        if (framesSound < traps_ctxt.sound_seconds * 20) {
             framesSound++;
             if (framesSound % 10 == 0) {
                 // MWEEP
@@ -246,7 +243,7 @@ void manage_traps() {
 
     // Rainbow trap
     if (traps_ctxt.rainbow_seconds > 0 && traps_ctxt.rainbow) {
-        if (framesRainbow / 20 < traps_ctxt.rainbow_seconds) {
+        if (framesRainbow < traps_ctxt.rainbow_seconds * 20) {
 
             colorRGB8_t rainbow = get_rainbow_color(framesRainbow, 3);
             z64_file.gameinfo->a_button_r = rainbow.r;
@@ -312,7 +309,7 @@ void manage_traps() {
 
     // UI trap
     if (CAN_DRAW_OR_APPLY_EFFECT && traps_ctxt.interface_seconds > 0 && traps_ctxt.interface) {
-         if (framesInterface / 20 < traps_ctxt.interface_seconds) {
+         if (framesInterface < traps_ctxt.interface_seconds * 20) {
 
             z64_file.nextHudVisibilityMode = z64_file.hudVisibilityMode = 1;
             framesInterface++;
@@ -327,7 +324,7 @@ void manage_traps() {
 
     // Earthquake trap
     if (CAN_DRAW_OR_APPLY_EFFECT && traps_ctxt.earthquake_seconds > 0 && traps_ctxt.earthquake) {
-        if (framesEarthquake / 20 < traps_ctxt.earthquake_seconds) {
+        if (framesEarthquake < traps_ctxt.earthquake_seconds * 20) {
             if (framesEarthquake == 0 || z64_game.scene_index != previousSceneIndex) {
                 void* Camera = z64_game.mainCamera;
                 z64_Camera_RequestQuake(&Camera, 0, 2, traps_ctxt.earthquake_seconds*20 - framesEarthquake);
