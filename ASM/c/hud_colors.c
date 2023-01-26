@@ -109,7 +109,18 @@ const colorRGB8_t rupee_colors[4] = {
   { 0xFF, 0x5A, 0xFF }, // Tycoon's Wallet (Purple)
 };
 
+uint8_t default_rupee_color = 1;
+colorRGB8_t rupee_color_extern = { 0xFF, 0xFF, 0xFF };
+
+void use_default_rupee_color(uint8_t useDefaultRupeeColor) {
+  default_rupee_color = useDefaultRupeeColor;
+}
+
+void set_rupee_color_extern(colorRGB8_t rupee_color) {
+  rupee_color_extern = rupee_color;
+}
+
 uint32_t rupee_hud_color() {
-  colorRGB8_t current_color = rupee_colors[z64_file.wallet];
+  colorRGB8_t current_color = (default_rupee_color) ? rupee_colors[z64_file.wallet] : rupee_color_extern;
   return (current_color.r << 24) +  (current_color.g << 16) +  (current_color.b << 8);
 }

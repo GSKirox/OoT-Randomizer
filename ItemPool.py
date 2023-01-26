@@ -317,13 +317,63 @@ def replace_max_item(items, item, max_count):
                 items[i] = get_junk_item()[0]
             count += 1
 
+def get_valid_traps(world):
+    trap_names = []
+    if 'ice_trap' in world.settings.trap_types:
+        trap_names.append('Ice Trap')
+    if 'reverse_control_trap' in world.settings.trap_types:
+        trap_names.append('Reverse controls Trap')
+    if 'healing_trap' in world.settings.trap_types:
+        trap_names.append('Healing Trap')
+    if 'slow_trap' in world.settings.trap_types:
+        trap_names.append('Slow Trap')
+    if 'fast_trap' in world.settings.trap_types:
+        trap_names.append('Fast Trap')
+    if 'c_buttons_trap' in world.settings.trap_types:
+        trap_names.append('C buttons Trap')
+    if 'no_z_trap' in world.settings.trap_types:
+        trap_names.append('No Z Trap')
+    if 'no_b_trap' in world.settings.trap_types:
+        trap_names.append('No B Trap')
+    if 'mweep_trap' in world.settings.trap_types:
+        trap_names.append('Sound Trap')
+    if 'shock_trap' in world.settings.trap_types:
+        trap_names.append('Shock Trap')
+    if 'bonk_trap' in world.settings.trap_types:
+        trap_names.append('Bonk Trap')
+    if 'textbox_trap' in world.settings.trap_types:
+        trap_names.append('Textbox Trap')
+    if 'rainbow_trap' in world.settings.trap_types:
+        trap_names.append('Rainbow Trap')
+    if 'interface_trap' in world.settings.trap_types:
+        trap_names.append('Interface Trap')
+    if 'earthquake_trap' in world.settings.trap_types:
+        trap_names.append('Earthquake Trap')
+    return trap_names   
+
+def replace_ice_traps_by_other_traps(items, world):
+    for i,val in enumerate(items):
+        if val == 'Ice Trap':
+            items[i] = get_random_trap_type_from_valid_pool(world)
+
+def get_random_trap_type_from_valid_pool(world):
+    trap_names = get_valid_traps(world)
+    if trap_names:
+        return random.choice(trap_names)
+    else:
+        return get_junk_item()[0]
 
 def generate_itempool(world):
     junk_pool[:] = list(junk_pool_base)
-    if world.settings.junk_ice_traps == 'on':
-        junk_pool.append(('Ice Trap', 10))
-    elif world.settings.junk_ice_traps in ['mayhem', 'onslaught']:
-        junk_pool[:] = [('Ice Trap', 1)]
+    if world.settings.junk_traps == 'on':
+        for trap_type in get_valid_traps(world):
+            junk_pool.append((trap_type, 10))
+    elif world.settings.junk_traps in ['mayhem', 'onslaught']:      
+        trap_names = get_valid_traps(world)
+        if trap_names:
+            junk_pool.clear()
+            for trap_type in trap_names:
+                junk_pool.append((trap_type, 1))
 
     # set up item pool
     (pool, placed_items) = get_pool_core(world)
@@ -681,9 +731,12 @@ def get_pool_core(world):
     else:
         placed_items['Gift from Sages'] = IGNORE_LOCATION
 
-    if world.settings.junk_ice_traps == 'off':
+    if world.settings.junk_traps == 'off':
         replace_max_item(pool, 'Ice Trap', 0)
-    elif world.settings.junk_ice_traps == 'onslaught':
+    # Remove the 6 ice traps from normal item pool, and replace them by random traps.
+    else:
+        replace_ice_traps_by_other_traps(pool, world)
+    if world.settings.junk_traps == 'onslaught':
         for item in [item for item, weight in junk_pool_base] + ['Recovery Heart', 'Bombs (20)', 'Arrows (30)']:
             replace_max_item(pool, item, 0)
 

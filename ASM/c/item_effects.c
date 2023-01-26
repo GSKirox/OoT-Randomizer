@@ -162,3 +162,68 @@ void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2) {
         save->event_chk_inf[8] = save->event_chk_inf[8] | 0xF000; // "Paid Back Mask Fees"
     }
 }
+
+uint8_t get_random_duration(uint8_t minDuration, uint8_t maxDuration) {
+    float randomFloat = Seeded_Rand_ZeroOne();
+    return minDuration + randomFloat * (maxDuration - minDuration);
+} 
+
+void give_reverse_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    reverse_trap(get_random_duration(30, 60));
+}
+
+void give_healing_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    health_and_magic_refill();
+}
+
+void give_speed_trap(z64_file_t *save, int16_t speed, int16_t arg2) {
+
+    // Negative => slow down ; Positive => accelerate
+    // -1 => 0.5 speed ; +1 => *1.5 speed
+    float speedFloat = 1 + speed / 2.0;
+
+    // Can't be lower than 0.1 ...
+    speedFloat = (speedFloat < 0.1) ? 0.1 : speedFloat;
+
+    speed_trap(get_random_duration(30, 60), speedFloat);
+}
+
+void give_no_z_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    no_z_trap(get_random_duration(30, 60));
+}
+
+void give_no_b_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    no_b_trap(get_random_duration(30, 60));
+}
+
+void rotate_c_buttons(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    c_button_trap(); 
+}
+
+void give_sound_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    sound_trap(get_random_duration(10, 30)); 
+}
+
+void give_shock_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    shock_trap(); 
+}
+
+void give_bonk_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    bonk_trap(); 
+}
+
+void give_textbox_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    textbox_trap(); 
+}
+
+void give_rainbow_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    rainbow_trap(get_random_duration(30, 60)); 
+}
+
+void give_interface_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    interface_trap(get_random_duration(30, 60)); 
+}
+
+void give_earthquake_trap(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    earthquake_trap(get_random_duration(30, 60)); 
+}

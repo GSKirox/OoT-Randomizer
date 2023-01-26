@@ -246,6 +246,20 @@ item_row_t item_table[] = {
     [0xD2] = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x9017, 0x0195, 0x77, no_upgrade, give_small_key_ring, FORT_ID,   -1), // Gerudo Fortress Small Key Ring
     [0xD3] = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x9018, 0x0195, 0x77, no_upgrade, give_small_key_ring, CASTLE_ID, -1), // Ganon's Castle Small Key Ring
 
+    [0xD4] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x902F, 0x0000, 0x00, no_upgrade, give_reverse_trap, -1, -1),       // Reverse controls Trap
+    [0xD5] = ITEM_ROW(0x3D,      GILDED_CHEST, 0x41, -1, 0x9030, 0x0000, 0x00, no_upgrade, give_healing_trap, -1, -1),       // Healing Trap
+    [0xD6] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9031, 0x0000, 0x00, no_upgrade, give_speed_trap, -1, -1),         // Slow movement Trap
+    [0xD7] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9032, 0x0000, 0x00, no_upgrade, give_speed_trap, 1, -1),          // Fast movement Trap
+    [0xD8] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9033, 0x0000, 0x00, no_upgrade, rotate_c_buttons, -1, -1),        // Rotate C buttons Trap
+    [0xD9] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9034, 0x0000, 0x00, no_upgrade, give_no_z_trap, -1, -1),          // No Z Trap
+    [0xDA] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9035, 0x0000, 0x00, no_upgrade, give_no_b_trap, -1, -1),          // No B Trap
+    [0xDB] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9036, 0x0000, 0x00, no_upgrade, give_sound_trap, -1, -1),         // Sound Trap
+    [0xDC] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9037, 0x0000, 0x00, no_upgrade, give_shock_trap, -1, -1),         // Shock Trap
+    [0xDD] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9038, 0x0000, 0x00, no_upgrade, give_bonk_trap, -1, -1),          // Bonk Trap
+    [0xDE] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9039, 0x0000, 0x00, no_upgrade, give_textbox_trap, -1, -1),       // Textbox Trap
+    [0xDF] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903A, 0x0000, 0x00, no_upgrade, give_rainbow_trap, -1, -1),       // Rainbow Trap
+    [0xE0] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903B, 0x0000, 0x00, no_upgrade, give_interface_trap, -1, -1),     // Interface Trap
+    [0xE1] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903C, 0x0000, 0x00, no_upgrade, give_earthquake_trap, -1, -1),    // Earthquake Trap
 };
 
 item_row_t *get_item_row(uint16_t item_id) {

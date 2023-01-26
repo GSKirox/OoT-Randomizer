@@ -104,8 +104,11 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "normal",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [
+            "ice_trap"
+        ],
+        "junk_traps": "normal",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -238,8 +241,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "ice_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -375,8 +379,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -503,8 +508,11 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "normal",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [
+            "ice_trap"
+        ],
+        "junk_traps": "normal",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -642,8 +650,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Claim Check"
         ]
@@ -793,8 +802,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Claim Check"
         ]
@@ -1065,8 +1075,21 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "minimal",
-        "junk_ice_traps": "onslaught",
-        "ice_trap_appearance": "anything",
+        "trap_types": [
+            "ice_trap",
+            "slow_trap",
+            "fast_trap",
+            "c_buttons_trap",
+            "no_z_trap",
+            "no_b_trap",
+            "mweep_trap",
+            "shock_trap",
+            "bonk_trap",
+            "textbox_trap",
+            "rainbow_trap"
+        ],
+        "junk_traps": "onslaught",
+        "trap_appearance": "anything",
         "adult_trade_start": [
             "Pocket Egg"
         ]
@@ -1183,8 +1206,11 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "normal",
-        "ice_trap_appearance": "junk_only",
+         "trap_types": [
+            "ice_trap"
+        ],
+        "junk_traps": "normal",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -1317,8 +1343,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -1449,8 +1476,9 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "off",
-        "ice_trap_appearance": "junk_only",
+        "trap_types": [],
+        "junk_traps": "off",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",

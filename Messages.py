@@ -260,6 +260,20 @@ ITEM_MESSAGES = {
     0x90FA: "\x08\x06\x49\x05\x41WINNER\x05\x40!\x04\x08\x13\x73You got a \x05\x41Piece of Heart\x05\x40!\x01You are already at\x01maximum health.",
     0x9002: "\x08You are a \x05\x43FOOL\x05\x40!",
     0x9003: "\x08You found a piece of the \x05\x41Triforce\x05\x40!",
+    0x902F: "\x08Reverse trap!\x01Your controls are inverted!",
+    0x9030: "\x08Healing trap!\x01Your health is restored!",
+    0x9031: "\x08Slow trap!\x01Your running speed is halved!",
+    0x9032: "\x08Fast trap!\x01Your running speed is doubled!",
+    0x9033: "\x08C trap!\x01\x05\x46\u00A6\x05\x40 \x05\x46\u00A7\x05\x40 and \x05\x46\u00A8\x05\x40 are rotated!",
+    0x9034: "\x08Button trap!\x01Your \u00A4 button is blocked!",
+    0x9035: "\x08Button trap!\x01Your \x05\x41\u00A0\x05\x40 button is blocked!",
+    0x9036: "\x08Mweep trap!\x01Mweep!",
+    0x9037: "\x08Shock trap!\x01What a shock!",
+    0x9038: "\x08Bonk trap!\x01Get bonked!",
+    0x9039: "\x08Textbox trap!\x01Better mash A!",
+    0x903A: "\x08Rainbow trap!\x01It's \x05\x41P\x05\x40\x05\x46A\x05\x40\x05\x42R\x05\x40\x05\x43T\x05\x40\x05\x44Y\x05\x40 time!",
+    0x903B: "\x08Interface trap!\x01The interface is hidden!",
+    0x903C: "\x08Earthquake trap!\x01The ground is shaking!",
 }
 
 KEYSANITY_MESSAGES = {
@@ -341,7 +355,17 @@ MISC_MESSAGES = {
     0x0458: ("\x12\x68\x7AMweep\x07\x04\x59", 0x23),
     0x0459: ("\x12\x68\x7AMweep\x07\x04\x5A", 0x23),
     0x045A: ("\x12\x68\x7AMweep\x07\x04\x5B", 0x23),
-    0x045B: ("\x12\x68\x7AMweep", 0x23)
+    0x045B: ("\x12\x68\x7AMweep", 0x23),
+    0x045C: ("This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?\x04" \
+             "This textbox is annoying, isn't it?\x04This textbox is annoying, isn't it?", 0x00)
 }
 
 
