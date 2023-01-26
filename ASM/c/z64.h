@@ -587,7 +587,7 @@ typedef struct
   uint8_t         magic_capacity;           /* 0x003C */
   int8_t          double_defense;           /* 0x003D */
   int8_t          bgs_flag;                 /* 0x003E */
-  char            unk_05_;                  /* 0x003F */
+  int8_t          ocarinaGameRoundNum;      /* 0x003F */
   int8_t          child_button_items[4];    /* 0x0040 */
   int8_t          child_c_button_slots[3];  /* 0x0044 */
   union
@@ -760,7 +760,8 @@ typedef struct
   uint32_t        temp_collect_flags;       /* 0x1380 */
   char            unk_11_[0x0013];          /* 0x1384 */
   uint8_t         grotto_id;                /* 0x1397 */
-  char            unk_12_[0x0030];          /* 0x1398 */
+  char            unk_12_[0x0029];          /* 0x1398 */
+  uint8_t         showTitleCard;            /* 0x13C7 */
   uint16_t        nayrus_love_timer;        /* 0x13C8 */
   char            unk_13_[0x0004];          /* 0x13CA */
   int16_t         timer_1_state;            /* 0x13CE */
@@ -770,7 +771,14 @@ typedef struct
   char            unk_14_[0x000A];          /* 0x13D6 */
   int8_t          seq_index;                /* 0x13E0 */
   int8_t          night_sfx;                /* 0x13E1 */
-  char            unk_15_[0x0012];          /* 0x13E2 */
+  int8_t          buttonStatus[0x0005];     /* 0x13E2 */
+  int8_t          forceRisingButtonAlphas;  /* 0x13E7 */
+  int16_t         nextHudVisibilityMode;    /* 0x13E8 */
+  int16_t         hudVisibilityMode;        /* 0x13EA */
+  int16_t         hudVisibilityModeTimer;   /* 0x13EC */
+  int16_t         prevHudVisibilityMode;    /* 0x13EE */
+  uint16_t        magicState;               /* 0x13F0 */
+  uint16_t        prevMagicState;           /* 0x13F2 */
   uint16_t        magic_meter_size;         /* 0x13F4 */
   char            unk_16_[0x0004];          /* 0x13F6 */
   uint16_t        event_inf[4];             /* 0x13FA */
@@ -779,7 +787,8 @@ typedef struct
   int16_t         minigame_state;           /* 0x1404 */
   char            unk_18_[0x0003];          /* 0x1406 */
   uint8_t         language;                 /* 0x1409 */
-  char            unk_19_[0x0002];          /* 0x140A */
+  uint8_t         audioSetting;             /* 0x140A */
+  char            unk_19_[0x0001];          /* 0x140B */
   uint8_t         z_targeting;              /* 0x140C */
   char            unk_1A_[0x0001];          /* 0x140D */
   uint16_t        disable_music_flag;       /* 0x140E */
@@ -1246,7 +1255,9 @@ typedef struct
   float            fog_distance;           /* 0x000D4 */
   float            z_distance;             /* 0x000D8 */
   float            unk_01_;                /* 0x000DC */
-  char             unk_02_[0x0190];        /* 0x000E0 */
+  char             unk_02_[0x0100];        /* 0x000E0 */
+  void*            mainCamera;             /* 0x001E0 */
+  char             CameraPadding[0x8C];    /* 0x001E4 */
   z64_actor_t     *camera_focus;           /* 0x00270 */
   char             unk_03_[0x00AE];        /* 0x00274 */
   uint16_t         camera_mode;            /* 0x00322 */
@@ -1823,6 +1834,7 @@ typedef struct EnGSwitch
 #define z64_Math_SinS_addr                      0x800636C4
 #define z64_Rand_ZeroOne_addr                   0x800CDCCC
 #define z64_RandSeed_addr                       0x800CDCC0
+#define z64_ModifyTempo_addr                    0x800C64A0
 #define z64_Rand_ZeroOne_addr                   0x800CDCCC
 #define Interface_LoadItemIcon1_addr            0x8006FB50
 #define Rupees_ChangeBy_addr                    0x800721CC
@@ -1879,6 +1891,12 @@ typedef void (*z64_DisplayTextbox_proc)   (z64_game_t *game, uint16_t text_id,
                                            int unknown_);
 typedef void (*z64_GiveItem_proc)         (z64_game_t *game, uint8_t item);
 
+// Damage Type : 
+// 0x00, 0x05 and above : slight damage recoil
+// 0x01 : Link get bonked and falls
+// 0x02 : Link jumps backwards
+// 0x03 : Freeze (Ice trap)
+// 0x04 : Electric shock
 typedef void(*z64_LinkDamage_proc)        (z64_game_t *ctxt, z64_link_t *link,
                                            uint8_t damage_type, float unk_00, uint32_t unk_01,
                                            uint16_t unk_02);
@@ -1898,15 +1916,6 @@ typedef int32_t(*z64_ActorSetLinkIncomingItemId_proc) (z64_actor_t *actor, z64_g
                                                        int32_t get_item_id, float xz_range, float y_range);
 typedef float (*z64_Rand_ZeroOne_proc)();
 typedef void(*z64_RandSeed_proc) (uint32_t seed);
-typedef float(*z64_Rand_ZeroOne_proc)();
-
-typedef void(*Interface_LoadItemIcon1_proc) (z64_game_t *game, uint16_t button);
-
-typedef void(*Rupees_ChangeBy_proc)         (int16_t rupeeChange);
-
-typedef void(*Message_ContinueTextbox_proc) (z64_game_t *play, uint16_t textId);
-
-typedef void(*PlaySFX_proc) (uint16_t sfxId);
 
 /* data */
 #define z64_file_mq             (*(OSMesgQueue*)      z64_file_mq_addr)
@@ -1972,6 +1981,8 @@ typedef void(*PlaySFX_proc) (uint16_t sfxId);
 #define z64_RandSeed            ((z64_RandSeed_proc)z64_RandSeed_addr)
 #define z64_Rand_ZeroOne        ((z64_Rand_ZeroOne_proc)z64_Rand_ZeroOne_addr)
 
+#define z64_ModifyTempo        ((z64_ModifyTempo_proc)z64_ModifyTempo_addr)
+
 #define z64_ObjectSpawn         ((z64_ObjectSpawn_proc)z64_ObjectSpawn_addr)
 #define z64_ObjectIndex         ((z64_ObjectIndex_proc)z64_ObjectIndex_addr)
 #define z64_ObjectIsLoaded      ((z64_ObjectIsLoaded_proc)z64_ObjectIsLoaded_addr)
@@ -1985,7 +1996,6 @@ typedef void(*PlaySFX_proc) (uint16_t sfxId);
 #define z64_Gfx_DrawDListOpa ((z64_Gfx_DrawDListOpa_proc)z64_Gfx_DrawDListOpa_addr)
 #define z64_Math_SinS ((z64_Math_SinS_proc)z64_Math_SinS_addr)
 #define z64_Rand_ZeroOne ((z64_Rand_ZeroOne_proc)z64_Rand_ZeroOne_addr)
-#define Interface_LoadItemIcon1 ((Interface_LoadItemIcon1_proc)Interface_LoadItemIcon1_addr)
 
 #define Rupees_ChangeBy         ((Rupees_ChangeBy_proc)Rupees_ChangeBy_addr)
 

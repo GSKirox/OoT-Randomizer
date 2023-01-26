@@ -366,8 +366,10 @@
           "row_span": [1,1,1],
           "settings": [
             "item_pool_value",
-            "junk_ice_traps",
-            "ice_trap_appearance"
+            "trap_types",
+            "junk_traps",
+            "trap_appearance",
+            "adult_trade_start",
           ]
         }
       ]

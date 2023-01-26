@@ -106,9 +106,12 @@
         "blue_fire_arrows": false,
         "fix_broken_drops": false,
         "item_pool_value": "balanced",
-        "junk_ice_traps": "normal",
-        "ice_trap_appearance": "junk_only",
         "adult_trade_shuffle": false,
+        "trap_types": [
+            "ice_trap"
+        ],
+        "junk_traps": "normal",
+        "trap_appearance": "junk_only",
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -244,7 +247,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -383,7 +385,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -512,7 +513,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "normal",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -653,7 +653,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Claim Check"
         ]
@@ -806,7 +805,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Claim Check"
         ]
@@ -1091,7 +1089,6 @@
         "item_pool_value": "minimal",
         "junk_ice_traps": "onslaught",
         "ice_trap_appearance": "anything",
-        "adult_trade_shuffle": true,
         "adult_trade_start": [
             "Pocket Egg",
             "Pocket Cucco",
@@ -1220,7 +1217,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "normal",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -1356,7 +1352,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",
@@ -1490,7 +1485,6 @@
         "item_pool_value": "balanced",
         "junk_ice_traps": "off",
         "ice_trap_appearance": "junk_only",
-        "adult_trade_shuffle": false,
         "adult_trade_start": [
             "Prescription",
             "Eyeball Frog",

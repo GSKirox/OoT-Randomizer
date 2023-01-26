@@ -4,6 +4,9 @@
 #include "z64.h"
 #include "icetrap.h"
 #include "triforce.h"
+#include "traps.h"
+#include "refill.h"
+#include "rng.h"
 
 void no_effect(z64_file_t *save, int16_t arg1, int16_t arg2);
 void full_heal(z64_file_t *save, int16_t arg1, int16_t arg2);
@@ -26,6 +29,20 @@ void clear_excess_hearts(z64_file_t *save, int16_t arg1, int16_t arg2);
 void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2);
 void give_bombchus(z64_file_t *save, int16_t arg1, int16_t arg2);
 void trade_quest_upgrade(z64_file_t *save, int16_t item_id, int16_t arg2);
+uint8_t get_random_duration(uint8_t minDuration, uint8_t maxDuration);
+void give_reverse_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_healing_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_speed_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_no_z_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_no_b_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void rotate_c_buttons(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_shock_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_bonk_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_sound_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_textbox_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_rainbow_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_interface_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
+void give_earthquake_trap(z64_file_t *save, int16_t arg1, int16_t arg2);
 
 enum dungeon {
     DEKU_ID    = 0,

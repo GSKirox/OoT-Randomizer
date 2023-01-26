@@ -82,37 +82,39 @@ def distribute_items_restrictive(window, worlds, fill_locations=None):
     worlds[0].settings.distribution.fill(window, worlds, [shop_locations, song_locations, fill_locations], [shopitempool, dungeon_items, songitempool, progitempool, prioitempool, restitempool])
     itempool = progitempool + prioitempool + restitempool
 
-    # set ice traps to have the appearance of other random items in the item pool
-    ice_traps = [item for item in itempool if item.name == 'Ice Trap']
-    # Extend with ice traps manually placed in plandomizer
-    ice_traps.extend(
+    # set traps to have the appearance of other random items in the item pool
+    traps = [item for item in itempool if 'Trap' in item.name]
+    # Extend with traps manually placed in plandomizer
+    traps.extend(
         location.item for location in cloakable_locations
         if (location.has_preview()
             and location.item is not None
-            and location.item.name == 'Ice Trap'
+            and 'Trap' in location.item.name
             and location.item.looks_like_item is None))
     junk_items = remove_junk_items.copy()
-    junk_items.remove('Ice Trap')
+    for junk_item in junk_items:
+        if 'Trap' in junk_item:
+            junk_items.remove(junk_item)
     major_items = [name for name, item in ItemInfo.items.items() if item.type == 'Item' and item.advancement and item.index is not None]
     fake_items = []
-    if worlds[0].settings.ice_trap_appearance == 'major_only':
+    if worlds[0].settings.trap_appearance == 'major_only':
         model_items = [item for item in itempool if item.majoritem]
         if len(model_items) == 0:  # All major items were somehow removed from the pool (can happen in plando)
             model_items = ItemFactory(major_items)
-    elif worlds[0].settings.ice_trap_appearance == 'junk_only':
+    elif worlds[0].settings.trap_appearance == 'junk_only':
         model_items = [item for item in itempool if item.name in junk_items]
         if len(model_items) == 0:  # All junk was removed
             model_items = ItemFactory(junk_items)
-    else:  # world[0].settings.ice_trap_appearance == 'anything':
-        model_items = [item for item in itempool if item.name != 'Ice Trap']
+    else:  # world[0].settings.trap_appearance == 'anything':
+        model_items = [item for item in itempool if 'Trap' not in item.name]
         if len(model_items) == 0:  # All major items and junk were somehow removed from the pool (can happen in plando)
             model_items = ItemFactory(major_items) + ItemFactory(junk_items)
-    while len(ice_traps) > len(fake_items):
-        # if there are more ice traps than model items, then double up on model items
+    while len(traps) > len(fake_items):
+        # if there are more traps than model items, then double up on model items
         fake_items.extend(model_items)
-    for random_item in random.sample(fake_items, len(ice_traps)):
-        ice_trap = ice_traps.pop(0)
-        ice_trap.looks_like_item = random_item
+    for random_item in random.sample(fake_items, len(traps)):
+        trap = traps.pop(0)
+        trap.looks_like_item = random_item
 
     # Start a search cache here.
     search = Search([world.state for world in worlds])

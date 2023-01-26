@@ -5041,37 +5041,79 @@ setting_infos = [
         }
     ),
     Combobox(
-        name           = 'junk_ice_traps',
-        gui_text       = 'Ice Traps',
-        default        = 'normal',
-        choices        = {
-            'off':       'No Ice Traps',
-            'normal':    'Normal Ice Traps',
-            'on':        'Extra Ice Traps',
-            'mayhem':    'Ice Trap Mayhem',
-            'onslaught': 'Ice Trap Onslaught',
+        name            = 'trap_types',
+        multiple_select = True,
+        gui_text        = 'Trap Types',
+        choices         = {
+            'ice_trap':       'Ice Trap',
+            'reverse_control_trap': 'Reverse controls Trap',
+            'healing_trap': 'Healing Trap',
+            'slow_trap':   'Slow movement Trap',
+            'fast_trap':  'Fast movement Trap',
+            'c_buttons_trap':  'Rotate C buttons Trap',
+            'no_z_trap':  'Block Z Trap',
+            'no_b_trap':  'Block B Trap',
+            'mweep_trap':  'Mweep Trap',
+            'shock_trap':  'Shock Trap',
+            'bonk_trap':  'Bonk Trap',
+            'textbox_trap':  'Textbox Trap',
+            'rainbow_trap':  'Rainbow Trap',
+            'interface_trap':  'Interface Trap',
+            'earthquake_trap':  'Earthquake Trap',
         },
         gui_tooltip    = '''\
-            'Off': All Ice Traps are removed.
+            Select the type of traps you'll find in the seed.
 
-            'Normal': Only Ice Traps from the base item pool
-            are placed.
+            Ice Trap : Freezes Link.
+            Reverse controls Trap : Inverts the stick controls for a random time between 30 and 60 sec.
+            Healing Trap : Puts Link to full health and magic.
+            Slow movement Trap : Slows Link for a random time between 30 and 60 sec.
+            Fast movement Trap : Makes Link go faster for a random time between 30 and 60 sec.
+            Rotate C buttons Trap : Rotates your C equips.
+            Block Z Trap : The Z input is blocked for a random time between 30 and 60 sec.
+            Block B Trap : The B input is blocked for a random time between 30 and 60 sec.
+            Mweep Trap : Mweep !
+            Shock Trap : Link receives 3 consecutive electrical shocks.
+            Bonk Trap : Link falls over 3 times.
+            Textbox Trap : A long textbox will appear.
+            Rainbow Trap : The HUD will be colorful for a random time between 30 and 60 sec.
+            Interface Trap : The HUD will be hidden for a random time between 30 and 60 sec.
+            Earthquake Trap : The camera will shake for a random time between 30 and 60 sec.
+        ''',
+        shared         = True,
+        default        = ['ice_trap'],
+    ),
+    Combobox(
+        name           = 'junk_traps',
+        gui_text       = 'Traps',
+        default        = 'normal',
+        choices        = {
+            'off':       'No Traps',
+            'normal':    'Normal Traps',
+            'on':        'Extra Traps',
+            'mayhem':    'Trap Mayhem',
+            'onslaught': 'Trap Onslaught',
+        },
+        gui_tooltip    = '''\
+            'Off': All Traps are removed.
 
-            'Extra Ice Traps': Chance to add extra Ice Traps
+            'Normal': 6 traps will be placed.
+
+            'Extra Traps': Chance to add extra Traps
             when junk items are added to the itempool.
 
-            'Ice Trap Mayhem': All added junk items will
-            be Ice Traps.
+            'Trap Mayhem': All added junk items will
+            be Traps.
 
-            'Ice Trap Onslaught': All junk items will be
-            replaced by Ice Traps, even those in the
+            'Trap Onslaught': All junk items will be
+            replaced by Traps, even those in the
             base pool.
         ''',
         shared         = True,
     ),
     Combobox(
-        name           = 'ice_trap_appearance',
-        gui_text       = 'Ice Trap Appearance',
+        name           = 'trap_appearance',
+        gui_text       = 'Trap Appearance',
         default        = 'major_only',
         choices        = {
             'major_only': 'Major Items Only',
@@ -5079,17 +5121,17 @@ setting_infos = [
             'anything':   'Anything',
         },
         gui_tooltip    = '''\
-            Changes the categories of items Ice Traps may
+            Changes the categories of items Traps may
             appear as, both when freestanding and when in
             chests with Chest Size Matches Contents enabled.
 
-            'Major Items Only': Ice Traps appear as Major
+            'Major Items Only': Traps appear as Major
             Items (and in large chests if CSMC enabled).
 
-            'Junk Items Only': Ice Traps appear as Junk
+            'Junk Items Only': Traps appear as Junk
             Items (and in small chests if CSMC enabled).
 
-            'Anything': Ice Traps may appear as anything.
+            'Anything': Traps may appear as anything.
         ''',
         shared         = True,
     ),
