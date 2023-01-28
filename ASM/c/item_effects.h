@@ -5,6 +5,8 @@
 #include "icetrap.h"
 #include "triforce.h"
 
+#include "ocarina_buttons.h"
+
 void no_effect(z64_file_t *save, int16_t arg1, int16_t arg2);
 void full_heal(z64_file_t *save, int16_t arg1, int16_t arg2);
 void give_triforce_piece(z64_file_t *save, int16_t arg1, int16_t arg2);
@@ -24,6 +26,8 @@ void give_bean_pack(z64_file_t *save, int16_t arg1, int16_t arg2);
 void fill_wallet_upgrade(z64_file_t *save, int16_t arg1, int16_t arg2);
 void clear_excess_hearts(z64_file_t *save, int16_t arg1, int16_t arg2);
 void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2);
+
+void unlock_ocarina_note(z64_file_t *save, int16_t arg1, int16_t arg2);
 
 enum dungeon {
     DEKU_ID    = 0,

@@ -246,6 +246,11 @@ item_row_t item_table[] = {
     [0xD2] = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x9017, 0x0195, 0x77, no_upgrade, give_small_key_ring, FORT_ID,   -1), // Gerudo Fortress Small Key Ring
     [0xD3] = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x9018, 0x0195, 0x77, no_upgrade, give_small_key_ring, CASTLE_ID, -1), // Ganon's Castle Small Key Ring
 
+    [0xE2] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9038, 0x0197, 0x82, no_upgrade, unlock_ocarina_note, 0, -1),          // Ocarina A
+    [0xE3] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9039, 0x0198, 0x83, no_upgrade, unlock_ocarina_note, 1, -1),       // Ocarina C up
+    [0xE4] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903A, 0x0198, 0x83, no_upgrade, unlock_ocarina_note, 2, -1),       // Ocarina C down
+    [0xE5] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903B, 0x0198, 0x83, no_upgrade, unlock_ocarina_note, 3, -1),     // Ocarina C left
+    [0xE6] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x903C, 0x0198, 0x83, no_upgrade, unlock_ocarina_note, 4, -1),    // Ocarina C right
 };
 
 item_row_t *get_item_row(uint16_t item_id) {

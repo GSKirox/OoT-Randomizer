@@ -162,3 +162,6 @@ void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2) {
         save->event_chk_inf[8] = save->event_chk_inf[8] | 0xF000; // "Paid Back Mask Fees"
     }
 }
+void unlock_ocarina_note(z64_file_t *save, int16_t arg1, int16_t arg2) {
+    unlock_button(arg1);
+}
