@@ -163,5 +163,21 @@ void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2) {
     }
 }
 void unlock_ocarina_note(z64_file_t *save, int16_t arg1, int16_t arg2) {
-    unlock_button(arg1);
+    switch(arg1) {
+        case 0 :
+            save->scene_flags[0x50].unk_00_ |= 1 << 0; //Unused word in scene x50.
+            break;
+        case 1 :
+            save->scene_flags[0x50].unk_00_ |= 1 << 1;
+            break;
+        case 2 :
+            save->scene_flags[0x50].unk_00_ |= 1 << 2;
+            break;
+        case 3 :
+            save->scene_flags[0x50].unk_00_ |= 1 << 3;
+            break;
+        case 4 :
+            save->scene_flags[0x50].unk_00_ |= 1 << 4;
+            break;
+    }
 }

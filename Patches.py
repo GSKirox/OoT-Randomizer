@@ -2302,6 +2302,9 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
         warp=world.settings.ocarina_songs in ('warp', 'all'),
     )
 
+    if world.settings.shuffle_individual_ocarina_notes:
+        rom.write_byte(rom.sym('SHUFFLE_OCARINA_BUTTONS'), 1)
+
     # Sets the torch count to open the entrance to Shadow Temple
     if world.settings.easier_fire_arrow_entry:
         torch_count = world.settings.fae_torch_count

@@ -4261,6 +4261,19 @@ setting_infos = [
             'randomize_key': 'randomize_settings',
         },
     ),
+    Checkbutton(
+        name           = 'shuffle_individual_ocarina_notes',
+        gui_text       = 'Shuffle Individual Ocarina Notes',
+        gui_tooltip    = '''\
+            Enabling this locks all Ocarina inputs, and adds 5
+            new items to find that unlock each 5 Ocarina notes.
+        ''',
+        default        = False,
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    ),
 
     # Detailed Logic (except "Guarantee Reachable Locations")
 

@@ -7,9 +7,9 @@ ocarina_buttons:
     sw      v0, 0x10(sp)
     sw      ra, 0x14(sp)
 
-    ;lb      t0, SHUFFLE_OCARINA_BUTTONS
-    ;beqz    t0, @@return
-    ;nop
+    lb      t0, SHUFFLE_OCARINA_BUTTONS
+    beqz    t0, @@return
+    nop
 
     jal     c_block_ocarina
     mov.s   f12, f0

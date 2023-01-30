@@ -720,6 +720,11 @@ class SaveContext():
             },
             'triforce_pieces'            : Address(0xD4 + 0x1C * 0x48 + 0x10, size=4), # Unused word in scene x48
             'pending_freezes'            : Address(0xD4 + 0x1C * 0x49 + 0x10, size=4), # Unused word in scene x49
+            'Ocarina_A_button'           : Address(0xD4 + 0x1C * 0x50 + 0x10, size=1), # Unused word in scene x50
+            'Ocarina_Cup_button'         : Address(0xD4 + 0x1C * 0x50 + 0x11, size=1), # Unused word in scene x50
+            'Ocarina_Cdown_button'       : Address(0xD4 + 0x1C * 0x50 + 0x12, size=1), # Unused word in scene x50
+            'Ocarina_Cleft_button'       : Address(0xD4 + 0x1C * 0x50 + 0x13, size=1), # Unused word in scene x50
+            'Ocarina_Cright_button'      : Address(0xD4 + 0x1C * 0x50 + 0x14, size=1), # Unused word in scene x50
         }
 
 
@@ -1039,6 +1044,11 @@ class SaveContext():
         },
         "Ice Trap"                  : {'pending_freezes': None},
         "Triforce Piece"            : {'triforce_pieces': None},
+        "Ocarina A button"          : {'Ocarina_A_button': True},
+        "Ocarina Cup button"        : {'Ocarina_Cup_button': True},
+        "Ocarina Cright button"     : {'Ocarina_Cright_button': True},
+        "Ocarina Cleft button"      : {'Ocarina_Cleft_button': True},
+        "Ocarina Cright button"     : {'Ocarina_Cright_button': True},
         "Boss Key (Forest Temple)"                : {'dungeon_items.forest.boss_key': True},
         "Boss Key (Fire Temple)"                  : {'dungeon_items.fire.boss_key': True},
         "Boss Key (Water Temple)"                 : {'dungeon_items.water.boss_key': True},

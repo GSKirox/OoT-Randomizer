@@ -140,8 +140,11 @@ item_draw_table_entry_t item_draw_table[] = {
     [0x7A] = { draw_gi_song_notes,          { 0x06000EC0, 0xFF9600FF, 1 } }, // Music Note inverted (Orange)
     [0x7B] = { draw_gi_song_notes,          { 0x06000EC0, 0xC832FFFF, 1 } }, // Music Note inverted (Purple)
     [0x7C] = { draw_gi_song_notes,          { 0x06000EC0, 0xC8FF00FF, 1 } }, // Music Note inverted (Yellow)
-    [0x81] = { draw_gi_various_opa0,        { 0x06000CE0 } }, // A button
-    [0x82] = { draw_gi_various_opa0,        { 0x06000AC0 } }, // C button
+    [0x7D] = { draw_gi_a_button,            { 0x06000C40, 0x0096FFFF } }, // A button
+    [0x7E] = { draw_gi_c_button,            { 0x06000A10, 0xC8FF00FF, 0 } }, // Cup button
+    [0x7F] = { draw_gi_c_button,            { 0x06000A10, 0xC8FF00FF, 2 } }, // Cdown button
+    [0x80] = { draw_gi_c_button,            { 0x06000A10, 0xC8FF00FF, 1 } }, // Cleft button
+    [0x81] = { draw_gi_c_button,            { 0x06000A10, 0xC8FF00FF, 3 } }, // Cright button
 };
 
 void base_draw_gi_model(z64_game_t *game, uint32_t draw_id) {

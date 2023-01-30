@@ -50,7 +50,7 @@
     "can_summon_gossip_fairy_without_suns": "Ocarina and (Zeldas_Lullaby or Eponas_Song or Song_of_Time)",
     "can_take_damage": "damage_multiplier != 'ohko' or Fairy or can_use(Nayrus_Love)",
     "can_plant_bean": "plant_beans or (is_child and (Magic_Bean, 10))",
-    "can_play(song)": "Ocarina and song",
+    "can_play(song)": "Ocarina and song and (not shuffle_individual_ocarina_notes or can_play_song_note(song))",
     "can_open_bomb_grotto": "can_blast_or_smash and (Stone_of_Agony or logic_grottos_without_agony)",
     "can_open_storm_grotto": "can_play(Song_of_Storms) and (Stone_of_Agony or logic_grottos_without_agony)",
     # The last case in a conditional still needs a check, to prevent failure from falling through
@@ -138,5 +138,20 @@
     "fire_temple_shortcuts": "'Fire Temple' in dungeon_shortcuts",
     "shadow_temple_shortcuts": "'Shadow Temple' in dungeon_shortcuts",
     "spirit_temple_shortcuts": "'Spirit Temple' in dungeon_shortcuts",
-    "king_dodongo_shortcuts": "region_has_shortcuts('King Dodongo Boss Room')"
+    "king_dodongo_shortcuts": "region_has_shortcuts('King Dodongo Boss Room')",
+
+    #Ocarina notes
+    "can_play_song_note(song)": "(song == Zeldas_Lullaby and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or 
+        (song == Eponas_Song and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or
+        (song == Sarias_Song and Ocarina_Cleft_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
+        (song == Suns_Song and Ocarina_Cdown_button and Ocarina_Cup_button and Ocarina_Cright_button) or
+        (song == Song_of_Time and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
+        (song == Song_of_Storms and Ocarina_A_button and Ocarina_Cup_button and Ocarina_Cdown_button) or
+        (song == Minuet_of_Forest and Ocarina_A_button and Ocarina_Cup_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
+        (song == Bolero_of_Fire and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
+        (song == Serenade_of_Water and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
+        (song == Nocturne_of_Shadow and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
+        (song == Requiem_of_Spirit and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
+        (song == Prelude_of_Light and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or
+        (song == Scarecrow_song)"
 }
