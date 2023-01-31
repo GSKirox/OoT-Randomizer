@@ -162,21 +162,22 @@ void open_mask_shop(z64_file_t *save, int16_t arg1, int16_t arg2) {
         save->event_chk_inf[8] = save->event_chk_inf[8] | 0xF000; // "Paid Back Mask Fees"
     }
 }
+
 void unlock_ocarina_note(z64_file_t *save, int16_t arg1, int16_t arg2) {
     switch(arg1) {
-        case 0 :
-            save->scene_flags[0x50].unk_00_ |= 1 << 0; //Unused word in scene x50.
+        case 0:
+            save->scene_flags[0x50].unk_00_ |= 1 << 0; // Unused word in scene x50.
             break;
-        case 1 :
+        case 1:
             save->scene_flags[0x50].unk_00_ |= 1 << 1;
             break;
-        case 2 :
+        case 2:
             save->scene_flags[0x50].unk_00_ |= 1 << 2;
             break;
-        case 3 :
+        case 3:
             save->scene_flags[0x50].unk_00_ |= 1 << 3;
             break;
-        case 4 :
+        case 4:
             save->scene_flags[0x50].unk_00_ |= 1 << 4;
             break;
     }

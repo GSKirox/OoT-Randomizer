@@ -1,8 +1,7 @@
 #include "ocarina_buttons.h"
 #include <stdbool.h>
 
-uint8_t c_block_ocarina()
-{
+uint8_t c_block_ocarina() {
     uint8_t res = 0;
     if (!(z64_file.scene_flags[0x50].unk_00_ & 1 << 0)) {
         res |= 1 << 0;
