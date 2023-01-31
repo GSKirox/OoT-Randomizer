@@ -3,7 +3,21 @@ import copy
 
 from Item import ItemInfo
 
-
+SONG_TABLE = {
+    'Zeldas Lullaby': '<^><^>',
+    'Eponas Song': '^<>^<>',
+    'Sarias Song':'v><v><',
+    'Suns Song': '>v^>v^',
+    'Song of Time': '>Av>Av',
+    'Song of Storms':'Av^Av^',
+    'Minuet of Forest': 'A^<><>',
+    'Bolero of Fire': 'vAvA>v>v',
+    'Serenade of Water': 'Av>><',
+    'Requiem of Spirit': 'AvA>vA',
+    'Nocturne of Shadow': '<>>A<>v',
+    'Prelude of Light': '^>^><^',
+}
+logger = logging.getLogger('')
 class State(object):
 
     def __init__(self, parent):
@@ -174,6 +188,30 @@ class State(object):
     def region_has_shortcuts(self, region_name):
         return self.world.region_has_shortcuts(region_name)
 
+    def can_play_song_note(self, song):
+
+        # Scarecrow needs 2 different notes
+        if song == 'Scarecrow Song':
+            ocarina_notes = ['Ocarina A Button', 'Ocarina Cleft Button', 'Ocarina Cup Button', 'Ocarina Cdown Button', 'Ocarina Cright Button']
+            return self.count_of(ocarina_notes) > 1
+
+        notes = SONG_TABLE[song]
+        if 'A' in notes:
+            if not self.has('Ocarina A Button'):
+                return False
+        if '<' in notes:
+            if not self.has('Ocarina Cleft Button'):
+                return False
+        if '^' in notes:
+            if not self.has('Ocarina Cup Button'):
+                return False
+        if 'v' in notes:
+            if not self.has('Ocarina Cdown Button'):
+                return False
+        if '>' in notes:
+            if not self.has('Ocarina Cright Button'):
+                return False
+        return True
 
     def __getstate__(self):
         return self.__dict__.copy()

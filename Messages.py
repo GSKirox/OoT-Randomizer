@@ -260,11 +260,11 @@ ITEM_MESSAGES = {
     0x90FA: "\x08\x06\x49\x05\x41WINNER\x05\x40!\x04\x08\x13\x73You got a \x05\x41Piece of Heart\x05\x40!\x01You are already at\x01maximum health.",
     0x9002: "\x08You are a \x05\x43FOOL\x05\x40!",
     0x9003: "\x08You found a piece of the \x05\x41Triforce\x05\x40!",
-    0x903D: "\x13\x74\x08You got the \x05\x41Ocarina A Button!\x05\x40\x01You can now play \u009F on the Ocarina!",
-    0x903E: "\x13\x74\x08You got the \x05\x41Ocarina C up Button!\x05\x40\x01You can now play \u00A5 on the Ocarina!",
-    0x903F: "\x13\x74\x08You got the \x05\x41Ocarina C down Button!\x05\x40\x01You can now play \u00A6 on the Ocarina!",
-    0x9040: "\x13\x74\x08You got the \x05\x41Ocarina C left Button!\x05\x40\x01You can now play \u00A7 on the Ocarina!",
-    0x9041: "\x13\x74\x08You got the \x05\x41Ocarina C right Button!\x05\x40\x01You can now play \u00A8 on the Ocarina!",
+    0x903D: "\x13\x74\x08You got the\x01 \x05\x41Ocarina A Button!\x05\x40\x01You can now play \u009F on the Ocarina!",
+    0x903E: "\x13\x74\x08You got the\x01 \x05\x41Ocarina C-up Button!\x05\x40\x01You can now play \u00A5 on the Ocarina!",
+    0x903F: "\x13\x74\x08You got the\x01 \x05\x41Ocarina C-down Button!\x05\x40\x01You can now play \u00A6 on the Ocarina!",
+    0x9040: "\x13\x74\x08You got the\x01 \x05\x41Ocarina C-left Button!\x05\x40\x01You can now play \u00A7 on the Ocarina!",
+    0x9041: "\x13\x74\x08You got the\x01 \x05\x41Ocarina C-right Button!\x05\x40\x01You can now play \u00A8 on the Ocarina!",
 }
 
 KEYSANITY_MESSAGES = {

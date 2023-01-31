@@ -448,11 +448,11 @@ hintTable = {
     'Deku Seeds (30)':                                          (["catapult ammo", "lots-o-seeds"], "Deku Seeds (30 pieces)", 'item'),
     'Gold Skulltula Token':                                     (["proof of destruction", "an arachnid chip", "spider remains", "one percent of a curse"], "a Gold Skulltula Token", 'item'),
 
-    'Ocarina A button':                                         ([""], "Ocarina A", 'item'),
-    'Ocarina Cup button':                                       ([""], "Ocarina C up", 'item'),
-    'Ocarina Cdown button':                                     ([""], "Ocarina C down", 'item'),
-    'Ocarina Cleft button':                                     ([""], "Ocarina C left", 'item'),
-    'Ocarina Cright button':                                    ([""], "Ocarina C right", 'item'),
+    'Ocarina A Button':                                         ([""], "an Ocarina A Button", 'item'),
+    'Ocarina Cup Button':                                       ([""], "an Ocarina C-up Button", 'item'),
+    'Ocarina Cdown Button':                                     ([""], "an Ocarina C-down Button", 'item'),
+    'Ocarina Cleft Button':                                     ([""], "an Ocarina C-left Button", 'item'),
+    'Ocarina Cright Button':                                    ([""], "an Ocarina C-right Button", 'item'),
     'ZR Frogs Ocarina Game':                                       (["an #amphibian feast# yields", "the #croaking choir's magnum opus# awards", "the #froggy finale# yields"], "the final reward from the #Frogs of Zora's River# is", ['overworld', 'sometimes']),
     'KF Links House Cow':                                          ("the #bovine bounty of a horseback hustle# gifts", "#Malon's obstacle course# leads to", 'always'),
 

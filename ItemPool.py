@@ -398,11 +398,11 @@ def get_pool_core(world):
     if world.settings.triforce_hunt:
         pending_junk_pool.extend(['Triforce Piece'] * world.settings.triforce_count_per_world)
     if world.settings.shuffle_individual_ocarina_notes:
-        pending_junk_pool.append('Ocarina A button')
-        pending_junk_pool.append('Ocarina Cup button')
-        pending_junk_pool.append('Ocarina Cleft button')
-        pending_junk_pool.append('Ocarina Cdown button')
-        pending_junk_pool.append('Ocarina Cright button')
+        pending_junk_pool.append('Ocarina A Button')
+        pending_junk_pool.append('Ocarina Cup Button')
+        pending_junk_pool.append('Ocarina Cleft Button')
+        pending_junk_pool.append('Ocarina Cdown Button')
+        pending_junk_pool.append('Ocarina Cright Button')
 
     # Use the vanilla items in the world's locations when appropriate.
     for location in world.get_locations():

@@ -138,20 +138,5 @@
     "fire_temple_shortcuts": "'Fire Temple' in dungeon_shortcuts",
     "shadow_temple_shortcuts": "'Shadow Temple' in dungeon_shortcuts",
     "spirit_temple_shortcuts": "'Spirit Temple' in dungeon_shortcuts",
-    "king_dodongo_shortcuts": "region_has_shortcuts('King Dodongo Boss Room')",
-
-    #Ocarina notes
-    "can_play_song_note(song)": "(song == Zeldas_Lullaby and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or 
-        (song == Eponas_Song and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or
-        (song == Sarias_Song and Ocarina_Cleft_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
-        (song == Suns_Song and Ocarina_Cdown_button and Ocarina_Cup_button and Ocarina_Cright_button) or
-        (song == Song_of_Time and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
-        (song == Song_of_Storms and Ocarina_A_button and Ocarina_Cup_button and Ocarina_Cdown_button) or
-        (song == Minuet_of_Forest and Ocarina_A_button and Ocarina_Cup_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
-        (song == Bolero_of_Fire and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
-        (song == Serenade_of_Water and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
-        (song == Nocturne_of_Shadow and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button and Ocarina_Cleft_button) or
-        (song == Requiem_of_Spirit and Ocarina_A_button and Ocarina_Cdown_button and Ocarina_Cright_button) or
-        (song == Prelude_of_Light and Ocarina_Cleft_button and Ocarina_Cup_button and Ocarina_Cright_button) or
-        (song == Scarecrow_song)"
+    "king_dodongo_shortcuts": "region_has_shortcuts('King Dodongo Boss Room')"
 }
