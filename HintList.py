@@ -447,12 +447,12 @@ hintTable = {
     'Deku Nuts (10)':                                           (["lots-o-nuts", "plenty of flashbangs", "plenty of scrub spit"], "Deku Nuts (10 pieces)", 'item'),
     'Deku Seeds (30)':                                          (["catapult ammo", "lots-o-seeds"], "Deku Seeds (30 pieces)", 'item'),
     'Gold Skulltula Token':                                     (["proof of destruction", "an arachnid chip", "spider remains", "one percent of a curse"], "a Gold Skulltula Token", 'item'),
+    'Ocarina A Button':                                         (["a blue note"], "the Ocarina A Button", 'item'),
+    'Ocarina Cup Button':                                       (["a high note"], "the Ocarina C-up Button", 'item'),
+    'Ocarina Cdown Button':                                     (["a low note"], "the Ocarina C-down Button", 'item'),
+    'Ocarina Cleft Button':                                     (["a somewhat high note"], "the Ocarina C-left Button", 'item'),
+    'Ocarina Cright Button':                                    (["a middle note"], "the Ocarina C-right Button", 'item'),
 
-    'Ocarina A Button':                                         ([""], "an Ocarina A Button", 'item'),
-    'Ocarina Cup Button':                                       ([""], "an Ocarina C-up Button", 'item'),
-    'Ocarina Cdown Button':                                     ([""], "an Ocarina C-down Button", 'item'),
-    'Ocarina Cleft Button':                                     ([""], "an Ocarina C-left Button", 'item'),
-    'Ocarina Cright Button':                                    ([""], "an Ocarina C-right Button", 'item'),
     'ZR Frogs Ocarina Game':                                       (["an #amphibian feast# yields", "the #croaking choir's magnum opus# awards", "the #froggy finale# yields"], "the final reward from the #Frogs of Zora's River# is", ['overworld', 'sometimes']),
     'KF Links House Cow':                                          ("the #bovine bounty of a horseback hustle# gifts", "#Malon's obstacle course# leads to", 'always'),
 

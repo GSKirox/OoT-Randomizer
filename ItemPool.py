@@ -124,6 +124,11 @@ ludicrous_items_extended = [
     'Magic Bean Pack',
     'Ice Arrows',
     'Blue Fire Arrows',
+    'Ocarina A Button',
+    'Ocarina Cup Button',
+    'Ocarina Cleft Button',
+    'Ocarina Cdown Button',
+    'Ocarina Cright Button',
 ]
 
 ludicrous_exclusions = [
@@ -391,6 +396,8 @@ def get_pool_core(world):
             pending_junk_pool.append('Boss Key (Ganons Castle)')
         if world.settings.shuffle_song_items == 'any':
             pending_junk_pool.extend(song_list)
+        if world.settings.shuffle_individual_ocarina_notes:
+            pending_junk_pool.extend(['Ocarina A Button', 'Ocarina Cup Button', 'Ocarina Cleft Button', 'Ocarina Cdown Button', 'Ocarina Cright Button'])
 
     if world.settings.item_pool_value == 'ludicrous':
         pending_junk_pool.extend(ludicrous_health)

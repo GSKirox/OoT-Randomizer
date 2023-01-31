@@ -3,21 +3,6 @@ import copy
 
 from Item import ItemInfo
 
-SONG_TABLE = {
-    'Zeldas Lullaby': '<^><^>',
-    'Eponas Song': '^<>^<>',
-    'Sarias Song':'v><v><',
-    'Suns Song': '>v^>v^',
-    'Song of Time': '>Av>Av',
-    'Song of Storms':'Av^Av^',
-    'Minuet of Forest': 'A^<><>',
-    'Bolero of Fire': 'vAvA>v>v',
-    'Serenade of Water': 'Av>><',
-    'Requiem of Spirit': 'AvA>vA',
-    'Nocturne of Shadow': '<>>A<>v',
-    'Prelude of Light': '^>^><^',
-}
-logger = logging.getLogger('')
 class State(object):
 
     def __init__(self, parent):
@@ -195,7 +180,7 @@ class State(object):
             ocarina_notes = ['Ocarina A Button', 'Ocarina Cleft Button', 'Ocarina Cup Button', 'Ocarina Cdown Button', 'Ocarina Cright Button']
             return self.count_of(ocarina_notes) > 1
 
-        notes = SONG_TABLE[song]
+        notes = str(self.world.song_notes[song])
         if 'A' in notes:
             if not self.has('Ocarina A Button'):
                 return False

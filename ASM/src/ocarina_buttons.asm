@@ -24,7 +24,7 @@ ocarina_buttons:
     ori     t1, t1, 0x7FFF
     and     t7, t7, t1
 
-@@button_cup:  
+@@button_cup:
     li      v1, 0x0002
     and     v1, v1, v0
     beq     v1, $0, @@button_cdown

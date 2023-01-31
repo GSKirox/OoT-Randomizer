@@ -4266,7 +4266,8 @@ setting_infos = [
         gui_text       = 'Shuffle Individual Ocarina Notes',
         gui_tooltip    = '''\
             Enabling this locks all Ocarina inputs, and adds 5
-            new items to find that unlock each 5 Ocarina notes.
+            new items to find that each unlock one of the 5
+            Ocarina notes.
         ''',
         default        = False,
         shared         = True,

@@ -18,7 +18,7 @@ from Messages import read_messages, update_message_by_id, read_shop_items, updat
         write_shop_items, remove_unused_messages, make_player_message, \
         add_item_messages, repack_messages, shuffle_messages, \
         get_message_by_id, Text_Code
-from OcarinaSongs import replace_songs
+from OcarinaSongs import patch_songs
 from MQ import patch_files, File, update_dmadata, insert_space, add_relocations
 from SaveContext import SaveContext, Scenes, FlagType
 from version import __version__
@@ -52,8 +52,8 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
         ('object_gi_triforce', data_path('Triforce.zobj'), 0x193),  # Triforce Piece
         ('object_gi_keyring',  data_path('KeyRing.zobj'),  0x195),  # Key Rings
         ('object_gi_warpsong', data_path('Note.zobj'),     0x196),  # Inverted Music Note
-        ('object_gi_abutton', data_path('A_Button.zobj'),  0x197),  # A button
-        ('object_gi_cbutton', data_path('C_Button.zobj'),  0x198),  # C button
+        ('object_gi_abutton',  data_path('A_Button.zobj'), 0x197),  # A button
+        ('object_gi_cbutton',  data_path('C_Button.zobj'), 0x198),  # C button
     ]
     for (name, zobj_path, object_id) in zobj_imports:
         obj_file = File({ 'Name': name })
@@ -2297,10 +2297,7 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
     # available number of skulls in the world instead of 100.
     rom.write_int16(0xBB340E, world.available_tokens)
 
-    replace_songs(world, rom,
-        frog=world.settings.ocarina_songs in ('frog', 'all'),
-        warp=world.settings.ocarina_songs in ('warp', 'all'),
-    )
+    patch_songs(world, rom)
 
     if world.settings.shuffle_individual_ocarina_notes:
         rom.write_byte(rom.sym('SHUFFLE_OCARINA_BUTTONS'), 1)
