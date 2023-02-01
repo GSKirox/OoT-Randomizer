@@ -2161,7 +2161,9 @@
             "ZR Magic Bean Salesman": "is_child",
             "ZR Frogs Ocarina Game": "
                 is_child and Ocarina and Zeldas_Lullaby and Eponas_Song and
-                Sarias_Song and Suns_Song and Song_of_Time and Song_of_Storms",
+                Sarias_Song and Suns_Song and Song_of_Time and Song_of_Storms and
+                (not (shuffle_individual_ocarina_notes and ocarina_songs) or
+                (Ocarina_A_Button and Ocarina_Cleft_Button and Ocarina_Cright_Button and Ocarina_Cdown_Button))",
             "ZR Frogs Zeldas Lullaby": "is_child and can_play(Zeldas_Lullaby)",
             "ZR Frogs Eponas Song": "is_child and can_play(Eponas_Song)",
             "ZR Frogs Sarias Song": "is_child and can_play(Sarias_Song)",

@@ -4636,7 +4636,7 @@ setting_infos = [
 
     Combobox(
         name           = 'ocarina_songs',
-        gui_text       = 'Randomize Ocarina Song Notes',
+        gui_text       = 'Randomize Ocarina Melodies',
         default        = 'off',
         choices        = {
             'off': 'Off',
