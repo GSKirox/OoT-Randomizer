@@ -3186,6 +3186,9 @@ skip_GS_BGS_text:
 .orga 0xED31B8
     addiu   t9, $zero, 0x3036
 ; Ocarina buttons
-.orga 0xB37EB4 ; sw      t7, 0x1F24($at)
+.orga 0xB37EB0 ; 
+; Replaced code:
+;   lui     at, 0x8012
+;   sw      t7, 0x1F24(at)
     jal     ocarina_buttons
     nop

@@ -1,16 +1,16 @@
 SHUFFLE_OCARINA_BUTTONS:
 .byte 0x00
-.align 4
+.align 8
 
 ocarina_buttons:
-    addiu   sp, sp, -0x18
+    addiu   sp, sp, -0x20
     sw      v0, 0x10(sp)
     sw      ra, 0x14(sp)
-
     lb      t0, SHUFFLE_OCARINA_BUTTONS
     beqz    t0, @@return
     nop
 
+    
     jal     c_block_ocarina
     mov.s   f12, f0
     move    t5, v0
@@ -67,9 +67,13 @@ ocarina_buttons:
 @@return:
     lw      v0, 0x10(sp)
     lw      ra, 0x14(sp)
-    addiu   sp, sp, 0x18
 
-    sw      t7, 0x1F24($at)
+    ; Replaced code
+    lui     at, 0x8012
+    sw      t7, 0x1F24(at)
+
     ; Displaced code
+    
+    addiu   sp, sp, 0x20
     jr      ra
-    lw      $ra, 0x0014($sp)
+    nop
