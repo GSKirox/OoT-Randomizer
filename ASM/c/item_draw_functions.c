@@ -448,6 +448,7 @@ void draw_gi_c_button(z64_game_t *game, uint32_t draw_id) {
 
     append_setup_dl_25_to_opa(gfx);
     gSPMatrix(gfx->poly_opa.p++, append_sys_matrix(gfx), G_MTX_MODELVIEW | G_MTX_LOAD | G_MTX_NOPUSH);
+    //gDPSetCombineMode(gfx->poly_opa.p++, G_CC_MODULATEI_PRIM, G_CC_MODULATEI2);
     gDPSetPrimColor(gfx->poly_opa.p++, 0, 0x80, prim_color.r, prim_color.g, prim_color.b, prim_color.a);
     gSPDisplayList(gfx->poly_opa.p++, item_draw_table[draw_id].args[0].dlist);
 }

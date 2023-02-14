@@ -53,7 +53,7 @@ def patch_rom(spoiler:Spoiler, world:World, rom:Rom):
         ('object_gi_keyring',  data_path('KeyRing.zobj'),  0x195),  # Key Rings
         ('object_gi_warpsong', data_path('Note.zobj'),     0x196),  # Inverted Music Note
         ('object_gi_abutton',  data_path('A_Button.zobj'), 0x197),  # A button
-        ('object_gi_cbutton',  data_path('C_Button.zobj'), 0x198),  # C button
+        ('object_gi_cbutton',  data_path('C_Button_Horizontal.zobj'), 0x198),  # C button
     ]
     for (name, zobj_path, object_id) in zobj_imports:
         obj_file = File({ 'Name': name })
