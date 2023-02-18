@@ -1918,8 +1918,6 @@ typedef int32_t(*z64_ActorSetLinkIncomingItemId_proc) (z64_actor_t *actor, z64_g
 typedef float (*z64_Rand_ZeroOne_proc)();
 typedef void(*z64_RandSeed_proc) (uint32_t seed);
 
-typedef void(*z64_ModifyTempo_proc)(float scaleTempoAndFreq, uint8_t duration);
-
 /* data */
 #define z64_file_mq             (*(OSMesgQueue*)      z64_file_mq_addr)
 #define z64_vi_counter          (*(uint32_t*)         z64_vi_counter_addr)
@@ -1996,6 +1994,8 @@ typedef void(*z64_ModifyTempo_proc)(float scaleTempoAndFreq, uint8_t duration);
 #define z64_Item_DropCollectible2 ((z64_Item_DropCollectible_proc)z64_Item_DropCollectible2_addr)
 #define z64_Gfx_DrawDListOpa ((z64_Gfx_DrawDListOpa_proc)z64_Gfx_DrawDListOpa_addr)
 #define z64_Math_SinS ((z64_Math_SinS_proc)z64_Math_SinS_addr)
-#define z64_Rand_ZeroOne ((z64_Rand_ZeroOne_proc)z64_Rand_ZeroOne_addr)
+
+#define z64_ModifyTempo        ((z64_ModifyTempo_proc)z64_ModifyTempo_addr)
+#define z64_Camera_RequestQuake ((z64_Camera_RequestQuake_proc)z64_Camera_RequestQuake_addr)
 
 #endif
