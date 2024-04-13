@@ -547,6 +547,9 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
     if world.settings.shuffle_individual_ocarina_notes:
         pending_junk_pool.extend(ocarina_buttons)
 
+    if world.settings.add_bronze_scale:
+        pending_junk_pool.append('Progressive Scale')
+
     # Use the vanilla items in the world's locations when appropriate.
     vanilla_items_processed = Counter()
     for location in world.get_locations():
