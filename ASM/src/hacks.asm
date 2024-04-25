@@ -4078,3 +4078,4 @@ courtyard_guards_kill:
 
 
 .include "hacks/ovl_en_kz.asm"
+.include "hacks/message.asm"
