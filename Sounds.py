@@ -211,7 +211,8 @@ class SoundHooks(Enum):
     MAGIC_ARROW_SHOT = SoundHook('Magic Arrow Shot',standard,   [0xC22016], False)
     BOMBCHU_MOVE = SoundHook('Bombchu Move',        standard,   [0xD5F792], True)
     GET_SMALL_ITEM = SoundHook('Get Small Item',    standard,   [0xBDA00E, 0xBE9B4A, 0xBD9FFA, 0xA88EA2], False)
-    EXPLOSION = SoundHook('Explosion',              standard,   [0xC0ECA2, 0xC88476], False)
+    #EXPLOSION = SoundHook('Explosion',              standard,   [0xC0ECA2, 0xC88476], False)
+    EXPLOSION = SoundHook('Explosion',              standard,   [0xAEE71A, 0xAEE79A], False)
     # Only overrides normal bomb/chu and Bomb flower, Bombchu bowling sounds too weird with it : 0xEECB9A, 0xEED402
     DAYBREAK = SoundHook('Daybreak',                nightfall,  [0xAD342E, 0xAD7B52], False)
     CUCCO = SoundHook('Cucco',                      standard,   [0xC28B9E, 0xC28C92, 0xC28D12, 0xC294EE,
