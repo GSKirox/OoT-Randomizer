@@ -10,7 +10,6 @@ typedef struct {
     override_t incoming_queue[3];
     uint8_t password[6];
     uint8_t extended_scale;
-    uint8_t pad;
 } extended_savecontext_static_t __attribute__ ((aligned (8)));
 
 

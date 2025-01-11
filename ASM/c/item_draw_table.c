@@ -180,6 +180,7 @@ item_draw_table_entry_t item_draw_table[] = {
     [0xA2] = { draw_gi_magic_meter,         { 0x06000000, 0x06000CC0, 0x06000F08, 0x060014E8, 0x286428FF, 0x000000FF } },  // Magic Meter Scroll 2
     [0xA3] = { draw_ice_trap,               { 0x04034380 } }, // Ice trap
     [0x94] = { draw_bronze_scale,              { 0x06000AA0, 0x06000A40, 0x06000A80, 0x06000CC8 } }, // Bronze scale
+    [0xA0] = { draw_bronze_scale,           { 0x06000AA0, 0x06000A40, 0x06000A80, 0x06000CC8 } }, // Bronze scale
 };
 
 void base_draw_gi_model(z64_game_t* game, uint32_t draw_id) {

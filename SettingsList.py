@@ -3158,6 +3158,539 @@ class SettingInfos:
         },
     )
 
+    shuffle_dungeon_rewards = Combobox(
+        gui_text       = 'Shuffle Dungeon Rewards',
+        default        = 'reward',
+        choices        = {
+            'vanilla':     'Vanilla Locations',
+            'reward':      'Dungeon Reward Locations',
+            'dungeon':     'Own Dungeon',
+            'regional':    'Regional',
+            'overworld':   'Overworld Only',
+            'any_dungeon': 'Any Dungeon',
+            'anywhere':    'Anywhere',
+        },
+        gui_tooltip    = '''\
+            This controls where Medallions and Spiritual Stones can
+            appear.
+
+            'Vanilla Locations': Medallions and Spiritual Stones will
+            appear in their vanilla locations.
+
+            'Dungeon Reward Locations': Medallions and Spiritual
+            Stones will be awarded when stepping into the blue warps
+            of boss rooms, but not necessarily the boss's vanilla
+            reward. In Multiworld, dungeon rewards will only appear
+            in their own world.
+
+            If you use one of the following options, note that after
+            receiving the last required medallion for the Burning
+            Kakariko cutscene while already in Kakariko, the cutscene
+            doesn't play until you leave and reenter Kakariko (or enter
+            and exit a building).
+
+            'Own Dungeon': Each dungeon reward appears in its respective
+            dungeon, but not necessarily on the boss. If boss entrances
+            are mixed, boss rooms that aren't in a dungeon can't have
+            dungeon rewards. The Light Medallion appears in the Temple
+            of Time, or may be a starting item if the "Free Reward from
+            Rauru" setting is enabled.
+
+            'Regional': Dungeon rewards can only appear in regions
+            near the original dungeon (including the dungeon
+            itself or other dungeons in the region).
+            <a href="https://wiki.ootrandomizer.com/index.php?title=Hints#Hint_Regions" target="_blank">The Wiki has a list of corresponding regions here.</a>
+
+            'Overworld Only': Dungeon rewards can only appear
+            outside of dungeons.
+
+            'Any Dungeon': Dungeon rewards can only appear
+            inside of dungeons.
+
+            'Anywhere': Dungeon rewards can appear anywhere
+            in the world.
+        ''',
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+        shared         = True,
+    )
+
+    shuffle_mapcompass = Combobox(
+        gui_text       = 'Maps & Compasses',
+        default        = 'dungeon',
+        choices        = {
+            'remove':      'Remove',
+            'startwith':   'Start With',
+            'vanilla':     'Vanilla Locations',
+            'dungeon':     'Own Dungeon',
+            'regional':    'Regional',
+            'overworld':   'Overworld Only',
+            'any_dungeon': 'Any Dungeon',
+            'keysanity':   'Anywhere',
+        },
+        gui_tooltip    = '''\
+            'Remove': Maps and Compasses are removed.
+            This will add a small amount of money and refill items to the pool.
+
+            'Start With': Maps and Compasses are given to you from the start.
+            This will add a small amount of money and refill items to the pool.
+
+            'Vanilla': Maps and Compasses will appear in their vanilla locations.
+
+            'Own Dungeon': Maps and Compasses can only appear in their respective
+            dungeon.
+
+            'Regional': Maps and Compasses can only appear in regions near the
+            original dungeon (including the dungeon itself or other dungeons in
+            the region). <a href="https://wiki.ootrandomizer.com/index.php?title=Hints#Hint_Regions" target="_blank">The Wiki has a list of corresponding regions here.</a>
+
+            'Overworld Only': Maps and Compasses can only appear
+            outside of dungeons.
+
+            'Any Dungeon': Maps and Compasses can only appear in a dungeon, but
+            not necessarily the dungeon they are for.
+
+            'Anywhere': Maps and Compasses can appear anywhere in the world.
+
+            Setting 'Remove', 'Start With', 'Overworld', or 'Anywhere' will add 2
+            more possible locations to each Dungeons. This makes dungeons more
+            profitable, especially Ice Cavern, Water Temple, and Jabu Jabu's Belly.
+
+            Regardless of the selected option, maps and compasses from pre-completed
+            dungeons won't be placed outside their respective dungeons and maps and
+            compasses from other dungeons won't be placed inside pre-completed dungeons.
+        ''',
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
+    shuffle_smallkeys = Combobox(
+        gui_text       = 'Small Keys',
+        default        = 'dungeon',
+        choices        = {
+            'remove':      'Remove (Keysy)',
+            'vanilla':     'Vanilla Locations',
+            'dungeon':     'Own Dungeon',
+            'regional':    'Regional',
+            'overworld':   'Overworld Only',
+            'any_dungeon': 'Any Dungeon',
+            'keysanity':   'Anywhere (Keysanity)',
+        },
+        gui_tooltip    = '''\
+            'Remove': Small Keys are removed. All locked doors in dungeons
+            will be unlocked. An easier mode.
+
+            'Vanilla': Small Keys will appear in their vanilla locations. You start
+            with 3 keys in Spirit Temple MQ because the vanilla key layout is
+            not beatable in logic. You start with 2 keys in Vanilla/MQ Shadow
+            Temple with its dungeon shortcut enabled to prevent softlocks.
+
+            'Own Dungeon': Small Keys can only appear in their respective
+            dungeon. If Fire Temple is not a Master Quest dungeon, the door to
+            the Boss Key chest will be unlocked.
+
+            'Regional': Small Keys can only appear
+            in regions near the original dungeon (including
+            the dungeon itself or other dungeons in the region).
+            <a href="https://wiki.ootrandomizer.com/index.php?title=Hints#Hint_Regions" target="_blank">The Wiki has a list of corresponding regions here.</a>
+
+            'Overworld Only': Small Keys can only appear outside
+            of dungeons. You may need to enter a dungeon multiple
+            times to gain items to access the overworld locations
+            with the keys required to finish a dungeon.
+
+            'Any Dungeon': Small Keys can only appear inside of any dungeon, but
+            won't necessarily be in the dungeon that the key is for. A difficult mode
+            since it is more likely to need to enter a dungeon multiple times.
+
+            'Anywhere': Small Keys can appear anywhere in the world. A difficult
+            mode since it is more likely to need to enter a dungeon multiple times.
+
+            Try different combination out, such as:
+            'Small Keys: Dungeon' + 'Boss Keys: Anywhere'
+            for a milder Keysanity experience.
+
+            Regardless of the selected option, small keys from pre-completed dungeons
+            won't be placed outside their respective dungeons and small keys from
+            other dungeons won't be placed inside pre-completed dungeons.
+        ''',
+        disable        = {
+            'any_dungeon': {'settings': ['one_item_per_dungeon']}
+        },
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
+    shuffle_hideoutkeys = Combobox(
+        gui_text       = "Thieves' Hideout Keys",
+        default        = 'vanilla',
+        disabled_default = 'remove',
+        choices        = {
+            'vanilla':     "Vanilla Locations",
+            'fortress':    "Gerudo Fortress Region",
+            'regional':    "Regional",
+            'overworld':   "Overworld Only",
+            'any_dungeon': "Any Dungeon",
+            'keysanity':   "Anywhere (Keysanity)",
+        },
+        gui_tooltip    = '''\
+            "Vanilla": Thieves' Hideout Keys will appear in their
+            vanilla location, dropping from fighting Gerudo guards
+            that attack when trying to free the jailed carpenters.
+
+            "Gerudo Fortress Region": Thieves' Hideout Keys can only
+            appear in Gerudo Fortress or Thieves' Hideout.
+
+            "Regional": Thieves' Hideout Keys can only appear in
+            Gerudo Valley, Gerudo Fortress, Thieves' Hideout, Gerudo
+            Training Ground, Haunted Wasteland, Desert Colossus, or
+            Spirit Temple.
+
+            "Overworld Only": Thieves' Hideout Keys can only appear
+            outside of dungeons.
+
+            "Any Dungeon": Thieves' Hideout Keys can only appear
+            inside of dungeons.
+
+            "Anywhere": Thieves' Hideout Keys can appear anywhere
+            in the world.
+        ''',
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+            'option_remove': ['fortress'],
+        },
+    )
+
+    shuffle_tcgkeys = Combobox(
+        gui_text       = 'Treasure Chest Game Keys',
+        default        = 'vanilla',
+        choices        = {
+            'remove':      "Remove (Keysy)",
+            'vanilla':     "Vanilla Locations",
+            'regional':    "Regional",
+            'overworld':   "Overworld Only",
+            'any_dungeon': "Any Dungeon",
+            'keysanity':   "Anywhere (Keysanity)",
+        },
+        gui_tooltip    = '''\
+            'Remove': All Treasure Chest Game keys will be removed
+            and all doors will remained unlocked.
+
+            'Vanilla': Treasure Chest Game keys will have vanilla
+            behavior (one random per room). The minigame will
+            also have vanilla behavior.
+
+            'Regional': Treasure Chest Game keys can only appear
+            in Hyrule Field, Lon Lon Ranch, the Market, the Temple
+            of Time, Hyrule Castle, outside Ganon's Castle, or
+            inside Ganon's Castle.
+
+            'Overworld Only': Treasure Chest Game keys can only appear
+            outside of dungeons.
+
+            'Any Dungeon': Treasure Chest Game keys can only appear
+            inside of dungeons.
+
+            'Anywhere': Treasure Chest Game keys can appear anywhere
+            in the world.
+        ''',
+        disable        = {
+            '!vanilla': {'settings': ['tcg_requires_lens']}
+        },
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
+    key_rings_choice = Combobox(
+        gui_text       = 'Key Rings Mode',
+        default        = 'off',
+        choices        = {
+            'off':       'Off',
+            'choice':    'Choose Dungeons',
+            'all':       'All Dungeons',
+            'random':    'Random Selection'
+        },
+        gui_tooltip     = '''\
+            Selected dungeons will have all of their keys found
+            at once in a ring rather than individually.
+
+            For example, instead of shuffling 5 Forest Temple
+            small keys into the pool, you will find a single
+            key ring which will give you all 5 keys at once.
+
+            Selecting key ring for dungeons will have no effect
+            if Small Keys are set to Remove or Vanilla.
+
+            Selecting key ring for Thieves' Hideout will have
+            no effect if Thieves' Hideout keys are in vanilla
+            locations or Gerudo's Fortress is set to Rescue
+            One Carpenter.
+
+            Similarly, selecting Treasure Chest Game will have
+            no effect if the keys aren't shuffled. Treasure Chest
+            Game will be considered when selecting 'All dungeons'
+            or 'Random selection'.
+        ''',
+        shared         = True,
+        disable={
+            'off':    {'settings': ['key_rings', 'keyring_give_bk']},
+            'all':    {'settings': ['key_rings']},
+            'random': {'settings': ['key_rings']},
+        },
+    )
+
+    key_rings = MultipleSelect(
+        gui_text        = 'Key Rings',
+        choices         = {
+            'Thieves Hideout':        "Thieves' Hideout",
+            'Treasure Chest Game':    "Treasure Chest Game",
+            'Forest Temple':          "Forest Temple",
+            'Fire Temple':            "Fire Temple",
+            'Water Temple':           "Water Temple",
+            'Shadow Temple':          "Shadow Temple",
+            'Spirit Temple':          "Spirit Temple",
+            'Bottom of the Well':     "Bottom of the Well",
+            'Gerudo Training Ground': "Gerudo Training Ground",
+            'Ganons Castle':          "Ganon's Castle"
+        },
+        default         = [],
+        gui_params     = {
+            "hide_when_disabled": True,
+        },
+        gui_tooltip    = '''\
+            Select areas with keyring instead of multiple keys
+        ''',
+        shared          = True,
+    )
+
+    keyring_give_bk = Checkbutton(
+        gui_text       = 'Key Rings give Boss Keys',
+        gui_tooltip    = '''\
+            Boss Keys will be included in the Key Ring for the specific dungeon.
+            This does not apply to the Ganon's Castle Boss Key.
+        ''',
+        default        = False,
+        shared         = True,
+        gui_params     = {
+            "hide_when_disabled": True,
+        },
+    )
+
+    shuffle_bosskeys = Combobox(
+        gui_text       = 'Boss Keys',
+        default        = 'dungeon',
+        choices        = {
+            'remove':      'Remove (Keysy)',
+            'vanilla':     'Vanilla Locations',
+            'dungeon':     'Own Dungeon',
+            'regional':    'Regional',
+            'overworld':   'Overworld Only',
+            'any_dungeon': 'Any Dungeon',
+            'keysanity':   'Anywhere (Keysanity)',
+        },
+        gui_tooltip    = '''\
+            'Remove': Boss Keys are removed. All locked
+            doors in dungeons will be unlocked. An easier
+            mode.
+
+            'Vanilla': Boss Keys will appear in their
+            vanilla locations.
+
+            'Own Dungeon': Boss Keys can only appear in their
+            respective dungeon.
+
+            'Regional': Boss Keys can only appear in regions
+            near the original dungeon (including the dungeon
+            itself or other dungeons in the region).
+            <a href="https://wiki.ootrandomizer.com/index.php?title=Hints#Hint_Regions" target="_blank">The Wiki has a list of corresponding regions here.</a>
+
+            'Overworld Only': Boss Keys can only appear outside
+            of dungeons. You may need to enter a dungeon without
+            the boss key to get items required to find the key
+            in the overworld.
+
+            'Any Dungeon': Boss Keys can only appear inside
+            of any dungeon, but won't necessarily be in the
+            dungeon that the key is for. A difficult mode since
+            it is more likely to need to enter a dungeon
+            multiple times.
+
+            'Anywhere': Boss Keys can appear
+            anywhere in the world. A difficult mode since
+            it is more likely to need to enter a dungeon
+            multiple times.
+
+            Try different combinations out, such as:
+            'Small Keys: Dungeon' + 'Boss Keys: Anywhere'
+            for a milder Keysanity experience.
+
+            Regardless of the selected option, boss keys from
+            pre-completed dungeons won't be placed outside their
+            respective dungeons and boss keys from other dungeons
+            won't be placed inside pre-completed dungeons.
+        ''',
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
+    shuffle_silver_rupees = Combobox(
+        gui_text       = 'Shuffle Silver Rupees',
+        default        = 'vanilla',
+        choices        = {
+            'remove':      'Remove',
+            'vanilla':     'Vanilla Locations',
+            'dungeon':     'Own Dungeon',
+            'regional':    'Regional',
+            'overworld':   'Overworld Only',
+            'any_dungeon': 'Any Dungeon',
+            'anywhere':    'Anywhere',
+        },
+        gui_tooltip    = '''\
+            Enabling this shuffles the Silver Rupee puzzles into to the
+            item pool.
+
+            Silver Rupees are grouped into sets of 5 (except for some
+            Master Quest dungeons, which have sets of other amounts), each
+            of which permanently unlocks something in a dungeon once all
+            the rupees in that set are collected. Hints will only tell you
+            the dungeon a Silver Rupee corresponds to, but upon collecting
+            it, you will be told the exact room.
+            The vanilla locations of Silver Rupees hold shuffled items.
+
+            'Remove': Silver Rupees are removed and the puzzles are
+            solved. This will add a small amount of money and
+            refill items to the pool.
+
+            'Vanilla': Silver Rupees will appear in their vanilla
+            locations. You will have to collect all of a set in one go to
+            to solve a puzzle.
+
+            'Own Dungeon': Silver Rupees can only appear
+            in their respective dungeon.
+
+            'Regional': Silver Rupees can only appear in regions
+            near the original dungeon (including the dungeon
+            itself or other dungeons in the region).
+            <a href="https://wiki.ootrandomizer.com/index.php?title=Hints#Hint_Regions" target="_blank">The Wiki has a list of corresponding regions here.</a>
+
+            'Overworld Only': Silver Rupees can only appear
+            outside of dungeons.
+
+            'Any Dungeon': Silver Rupees can only appear in a
+            dungeon, but not necessarily the dungeon they are for.
+
+            'Anywhere': Silver Rupees can appear
+            anywhere in the world.
+        ''',
+        shared         = True,
+        disable        = {
+            'remove':  {'settings': ['silver_rupee_pouches_choice', 'silver_rupee_pouches']},
+            'vanilla': {'settings': ['silver_rupee_pouches_choice', 'silver_rupee_pouches']},
+        },
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
+    silver_rupee_pouches_choice = Combobox(
+        gui_text       = 'Silver Rupee Pouches Mode',
+        default        = 'off',
+        choices        = {
+            'off':       'Off',
+            'choice':    'Choose Puzzles',
+            'all':       'All Puzzles',
+            'random':    'Random Puzzles'
+        },
+        gui_tooltip     = '''\
+            Selected silver rupee puzzles will have all of
+            their silver rupees found at once in a pouch
+            rather than individually.
+
+            For example, instead of shuffling 5 silver
+            rupees for the Fire Trial in Ganon's Castle
+            into the pool, you will find a single pouch
+            which will give you all 5 of them at once.
+        ''',
+        shared         = True,
+        disable        = {
+            'off':    {'settings': ['silver_rupee_pouches']},
+            'all':    {'settings': ['silver_rupee_pouches']},
+            'random': {'settings': ['silver_rupee_pouches']},
+        },
+        gui_params     = {
+            "hide_when_disabled": True,
+        },
+    )
+
+    silver_rupee_pouches = MultipleSelect(
+        gui_text        = 'Silver Rupee Pouches',
+        choices         = {
+            'Dodongos Cavern Staircase': "Dodongo's Cavern Staircase",
+            'Ice Cavern Spinning Scythe': "Ice Cavern Spinning Scythe",
+            'Ice Cavern Push Block': "Ice Cavern Push Block",
+            'Bottom of the Well Basement': "Bottom of the Well Basement",
+            'Shadow Temple Scythe Shortcut': "Shadow Temple Scythe Shortcut",
+            'Shadow Temple Invisible Blades': "Shadow Temple Invisible Blades",
+            'Shadow Temple Huge Pit': "Shadow Temple Huge Pit",
+            'Shadow Temple Invisible Spikes': "Shadow Temple Invisible Spikes",
+            'Gerudo Training Ground Slopes': "Gerudo Training Ground Slopes",
+            'Gerudo Training Ground Lava': "Gerudo Training Ground Lava",
+            'Gerudo Training Ground Water': "Gerudo Training Ground Water",
+            'Spirit Temple Child Early Torches': "Spirit Temple Child Early Torches",
+            'Spirit Temple Adult Boulders': "Spirit Temple Adult Boulders",
+            'Spirit Temple Lobby and Lower Adult': "Spirit Temple Lobby and Lower Adult",
+            'Spirit Temple Sun Block': "Spirit Temple Sun Block",
+            'Spirit Temple Adult Climb': "Spirit Temple Adult Climb",
+            'Ganons Castle Spirit Trial': "Ganon's Castle Spirit Trial",
+            'Ganons Castle Light Trial': "Ganon's Castle Light Trial",
+            'Ganons Castle Fire Trial': "Ganon's Castle Fire Trial",
+            'Ganons Castle Shadow Trial': "Ganon's Castle Shadow Trial",
+            'Ganons Castle Water Trial': "Ganon's Castle Water Trial",
+            'Ganons Castle Forest Trial': "Ganon's Castle Forest Trial",
+        },
+        gui_tooltip    = '''\
+            Select puzzles with silver rupee pouches
+            instead of individual silver rupees.
+        ''',
+        default         = [],
+        gui_params     = {
+            "hide_when_disabled": True,
+        },
+        shared          = True,
+    )
+
+    enhance_map_compass = Checkbutton(
+        gui_text       = 'Maps and Compasses Give Information',
+        gui_tooltip    = '''\
+            Gives the Map and Compass extra functionality.
+            Map will tell if a dungeon is vanilla or Master Quest.
+            Compass will tell what medallion or stone is within.
+            The Temple of Time Altar will no longer provide
+            information on the location of medallions and stones.
+
+            'Maps/Compasses: Remove': The dungeon information is
+            not available anywhere in the game.
+
+            'Maps/Compasses: Start With': The dungeon information
+            is available immediately from the dungeon menu.
+        ''',
+        default        = False,
+        shared         = True,
+        gui_params     = {
+            'randomize_key': 'randomize_settings',
+        },
+    )
+
     # Detailed Logic (except "Guarantee Reachable Locations")
 
     logic_no_night_tokens_without_suns_song = Checkbutton(
