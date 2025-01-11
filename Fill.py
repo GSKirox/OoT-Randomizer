@@ -89,11 +89,12 @@ def distribute_items_restrictive(worlds: list[World], fill_locations: Optional[l
     ice_traps = [item for item in itempool if item.name == 'Ice Trap']
     # Extend with ice traps manually placed in plandomizer
     ice_traps.extend(
-        location.item for location in cloakable_locations
-        if (location.has_preview()
-            and location.item is not None
-            and location.item.name == 'Ice Trap'
-            and location.item.looks_like_item is None))
+        location.item
+        for location in cloakable_locations
+        if location.item is not None
+        and location.item.name == 'Ice Trap'
+        and location.item.looks_like_item is None
+    )
     junk_items = remove_junk_items.copy()
     junk_items.remove('Ice Trap')
     major_items = [name for name, item in ItemInfo.items.items() if item.type == 'Item' and item.advancement and item.index is not None]
@@ -248,7 +249,7 @@ def fill_dungeons_restrictive(worlds: list[World], search: Search, shuffled_loca
     # sort in the order Other, Small Key, Boss Key before placing dungeon items
     # python sort is stable, so the ordering is still random within groups
     # fill_restrictive processes the resulting list backwards so the Boss Keys will actually be placed first
-    sort_order = {"BossKey": 3, "GanonBossKey": 3, "SmallKey": 2}
+    sort_order = {"BossKey": 3, "GanonBossKey": 3, "SmallKey": 2, "SmallKeyRing": 2}
     dungeon_items.sort(key=lambda item: sort_order.get(item.type, 1))
 
     # place dungeon items
