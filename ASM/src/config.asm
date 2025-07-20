@@ -260,6 +260,12 @@ CFG_DUNGEON_PRECOMPLETED:
 .endarea
 DOT_CONDITION:
 .byte 0x01
+.area 0xC, 0x00
+CFG_DUNGEON_ENTRANCES:
+.endarea
+.area 0xC, 0x00
+CFG_BOSSES:
+.endarea
 .align 4
 
 ; These configuration values are given fixed addresses to aid auto-trackers.
