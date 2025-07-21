@@ -210,10 +210,10 @@ void draw_world_info(z64_disp_buf_t* db) {
     if (!CAN_DRAW_WORLD_INFO) {
         return;
     }
-    // Test if the first 2 are 0. Since no dungeon can be duped, this means the setting is not enabled.
-    bool show_dungeons = CFG_DUNGEON_ENTRANCES[0] > 0 && CFG_DUNGEON_ENTRANCES[1] > 0;
+    // Since no dungeon can be duped, this means the setting is not enabled.
+    bool show_dungeons = CFG_DUNGEON_ENTRANCES[0] != CFG_DUNGEON_ENTRANCES[1];
     // Same for bosses.
-    bool show_bosses = CFG_BOSSES[0] > 0 && CFG_BOSSES[1] > 0;
+    bool show_bosses = CFG_BOSSES[0] != CFG_BOSSES[1];
     // If neither setting is on, don't display this menu at all.
     if (!show_dungeons && !show_bosses) {
         return;
@@ -257,17 +257,27 @@ void draw_world_info(z64_disp_buf_t* db) {
 
         // Draw background
         gDPSetCombineMode(db->p++, G_CC_PRIMITIVE, G_CC_PRIMITIVE);
-        gDPSetPrimColor(db->p++, 0, 0, 0x00, 0x00, 0x00, 0xD0);
-        gSPTextureRectangle(db->p++,
-                bg_left<<2, bg_top<<2,
-                (bg_left + bg_width)<<2, (bg_top + bg_height)<<2,
+        for (int i = 0; i < rows; i++) {
+            uint16_t line_top = bg_top + i * (font_height + padding) + padding;
+            gDPPipeSync(db->p++);
+            if (i % 2) {
+                gDPSetPrimColor(db->p++, 0, 0, 0x00, 0x00, 0x00, 0xD0);
+            }
+            else {
+                gDPSetPrimColor(db->p++, 0, 0, 0x00, 0x00, 0x00, 0xDA);
+            }
+            gSPTextureRectangle(db->p++,
+                bg_left<<2, line_top<<2,
+                (bg_left + bg_width)<<2, (line_top + font_height + padding)<<2,
                 0,
                 0, 0,
                 1<<10, 1<<10);
+        }
 
         gDPPipeSync(db->p++);
         gDPSetCombineMode(db->p++, G_CC_MODULATEIA_PRIM, G_CC_MODULATEIA_PRIM);
         gDPSetPrimColor(db->p++, 0, 0, 120, 255, 100, 0xFF);
+
         // Draw the legend at the top.
         text_print_size(db, "Entrance", left, start_top, font_width, font_height);
         if (show_dungeons) {
@@ -303,28 +313,9 @@ void draw_world_info(z64_disp_buf_t* db) {
                 text_print_size(db, boss->name, left_boss, top, font_width, font_height);
             }
         }
-        // Draw a line between each row.
-        start_top += font_height / 2.0;
-        for (int i = 0; i < rows - 1; i++) {
-            int top = start_top + ((font_height + padding) * i) + 1;
-            int dotted_line_left = left;
-            gDPPipeSync(db->p++);
-            gDPSetCombineMode(db->p++, G_CC_PRIMITIVE, G_CC_PRIMITIVE);
-            if (i % 2) {
-                gDPSetPrimColor(db->p++, 0, 0, 0x80, 0x80, 0x80, 0x80);
-            }
-            else {
-                gDPSetPrimColor(db->p++, 0, 0, 0xCC, 0xCC, 0xCC, 0xCC);
-            }
-            gSPTextureRectangle(db->p++,
-                    left * 4, (top + 5) * 4,
-                    (left + bg_width) * 4, ((top + 5) + 1) * 4,
-                    0,
-                    0, 0,
-                    1024, 1024);
-        }
     }
 }
+
 void draw_dungeon_info(z64_disp_buf_t* db) {
     show_dungeon_info = 0;
     pad_t pad_held = z64_ctxt.input[0].raw.pad;
