@@ -2616,6 +2616,42 @@ def configure_dungeon_info(rom: Rom, world: World) -> None:
     dungeon_is_mq = [int(world.dungeon_mq.get(c, False)) for c in codes]
     dungeon_precompleted = [int(world.precompleted_dungeons.get(c, False)) for c in codes]
 
+    dungeon_entrances_list = ['KF Outside Deku Tree -> Deku Tree Lobby', 'Death Mountain -> Dodongos Cavern Beginning', 'Zoras Fountain -> Jabu Jabus Belly Beginning',
+                              'SFM Forest Temple Entrance Ledge -> Forest Temple Lobby', 'DMC Fire Temple Entrance -> Fire Temple Lower', 'Lake Hylia -> Water Temple Lobby',
+                              'Graveyard Warp Pad Region -> Shadow Temple Entryway', 'Desert Colossus -> Spirit Temple Lobby', 'Kakariko Village -> Bottom of the Well',
+                              'ZF Ice Ledge -> Ice Cavern Beginning', 'Gerudo Fortress -> Gerudo Training Ground Lobby', 'Ganons Castle Ledge -> Ganons Castle Lobby']
+
+    dungeon_lobby_list = ['Deku Tree Lobby', 'Dodongos Cavern Beginning', 'Jabu Jabus Belly Beginning',
+                          'Forest Temple Lobby', 'Fire Temple Lower', 'Water Temple Lobby',
+                          'Shadow Temple Entryway', 'Spirit Temple Lobby', 'Bottom of the Well',
+                          'Ice Cavern Beginning', 'Gerudo Training Ground Lobby', 'Ganons Castle Lobby']
+
+    dungeon_entrances = []
+    if world.settings.shuffle_dungeon_entrances != 'off':
+        for dungeon_entrance in dungeon_entrances_list:
+            connected_region = world.get_entrance(dungeon_entrance).connected_region
+            dungeon_entrances.append(dungeon_lobby_list.index(connected_region.name))
+
+    bosses_entrances_list = ['Deku Tree Before Boss -> Queen Gohma Boss Room', 'Dodongos Cavern Before Boss -> King Dodongo Boss Room', 'Jabu Jabus Belly Before Boss -> Barinade Boss Room',
+                              'Forest Temple Before Boss -> Phantom Ganon Boss Room', 'Fire Temple Before Boss -> Volvagia Boss Room', 'Water Temple Before Boss -> Morpha Boss Room',
+                              'Shadow Temple Before Boss -> Bongo Bongo Boss Room', 'Spirit Temple Before Boss -> Twinrova Boss Room']
+
+    boss_lobby_list = ['Queen Gohma Boss Room', 'King Dodongo Boss Room', 'Barinade Boss Room',
+                       'Phantom Ganon Boss Room', 'Volvagia Boss Room', 'Morpha Boss Room',
+                       'Bongo Bongo Boss Room', 'Twinrova Boss Room', '', '', '', 'Ganons Castle Tower']
+
+    bosses = []
+    if world.settings.shuffle_bosses != 'off':
+        for boss_entrance in bosses_entrances_list:
+            connected_region = world.get_entrance(boss_entrance).connected_region
+            bosses.append(boss_lobby_list.index(connected_region.name))
+        # BOTW, Ice and GTG have no boss so just put their normal index to display a "-"
+        bosses.append(8)
+        bosses.append(9)
+        bosses.append(10)
+        connected_region = world.get_entrance('Ganons Castle Main -> Ganons Castle Tower').connected_region
+        bosses.append(boss_lobby_list.index(connected_region.name))
+
     rom.write_int32(rom.sym('CFG_DUNGEON_INFO_ENABLE'), 2)
     rom.write_int32(rom.sym('CFG_DUNGEON_INFO_MQ_ENABLE'), int(mq_enable))
     rom.write_int32(rom.sym('CFG_DUNGEON_INFO_MQ_NEED_MAP'), int(enhance_map_compass))
@@ -2629,9 +2665,7 @@ def configure_dungeon_info(rom: Rom, world: World) -> None:
     rom.write_byte(rom.sym('CFG_DUNGEON_INFO_REWARD_WORLDS_ENABLE'), int(world.settings.world_count > 1 and world.settings.shuffle_dungeon_rewards in ('regional', 'overworld', 'any_dungeon', 'anywhere')))
     rom.write_bytes(rom.sym('CFG_DUNGEON_REWARD_WORLDS'), dungeon_reward_worlds)
     rom.write_bytes(rom.sym('CFG_DUNGEON_PRECOMPLETED'), dungeon_precompleted)
-    dungeon_entrances = [random.randint(0, 11) for x in range(12)]
     rom.write_bytes(rom.sym('CFG_DUNGEON_ENTRANCES'), dungeon_entrances)
-    bosses = [random.randint(0, 11) for x in range(12)]
     rom.write_bytes(rom.sym('CFG_BOSSES'), bosses)
 
 

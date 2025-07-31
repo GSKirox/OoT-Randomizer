@@ -30,35 +30,37 @@ dungeon_entry_t dungeons[] = {
 };
 
 dungeon_entrance_t dungeon_entrances[] = {
-    {  0, "Deku"},
-    {  1, "Dodongo"},
-    {  2, "Jabu"},
+    {  0, 1, "Deku"},
+    {  1, 1, "Dodongo"},
+    {  2, 1, "Jabu"},
 
-    {  3, "Forest"},
-    {  4, "Fire"},
-    {  5, "Water"},
-    {  7, "Shadow"},
-    {  6, "Spirit"},
+    {  3, 1, "Forest"},
+    {  4, 1, "Fire"},
+    {  5, 1, "Water"},
+    {  7, 1, "Shadow"},
+    {  6, 1, "Spirit"},
 
-    {  8, "BotW"},
-    {  9, "Ice"},
-    { 11, "GTG"},
-    { 13, "Ganon"}
+    {  8, 0, "BotW"},
+    {  9, 0, "Ice"},
+    { 11, 0, "GTG"},
+    { 13, 0, "Ganon"}
 };
 
 boss_entry_t bosses[] = {
-    {  0, "Gohma"},
-    {  1, "KD"},
-    {  2, "Bari"},
-    {  3, "PG"},
-    {  4, "Volv"},
-    {  5, "Morpha"},
-    {  7, "Bongo"},
-    {  6, "Twin"},
-    {  8, "-"},
-    {  9, "-"},
-    {  11, "-"},
-    {  13, "Ganon"}
+    {  0, 1, "Gohma"},
+    {  1, 1, "KD"},
+    {  2, 1, "Bari"},
+
+    {  3, 1, "PG"},
+    {  4, 1, "Volv"},
+    {  5, 1, "Morpha"},
+    {  7, 1, "Bongo"},
+    {  6, 1, "Twin"},
+
+    {  8, 0, "-"},
+    {  9, 0, "-"},
+    { 11, 0, "-"},
+    { 13, 0, "Ganon"}
 };
 
 typedef struct {
@@ -300,17 +302,32 @@ void draw_world_info(z64_disp_buf_t* db) {
             for (int i = 0; i < rows - 1; i++) {
                 gDPPipeSync(db->p++);
                 dungeon_entrance_t* d = &(dungeon_entrances[CFG_DUNGEON_ENTRANCES[i]]);
+                if (CFG_DUNGEON_INFO_REWARD_NEED_COMPASS && d->has_compass && !z64_file.dungeon_items[d->index].compass) {
+                    continue;
+                }
                 int top = start_top + ((font_height + padding) * (i + 1)) + 1;
                 text_print_size(db, d->name, left_dungeon, top, font_width, font_height);
+
+                // If boss ER is also on, display the boss on the same line as the actual dungeon.
+                if (show_bosses) {
+                    gDPPipeSync(db->p++);
+                    boss_entry_t* boss = &(bosses[CFG_BOSSES[CFG_DUNGEON_ENTRANCES[i]]]);
+                    int top = start_top + ((font_height + padding) * (i + 1)) + 1;
+                    text_print_size(db, boss->name, left_boss, top, font_width, font_height);
+                 }
             }
         }
-        if (show_bosses) {
-        // Draw the list of bosses.
-            for (int i = 0; i < rows - 1; i++) {
-                gDPPipeSync(db->p++);
-                boss_entry_t* boss = &(bosses[CFG_BOSSES[i]]);
-                int top = start_top + ((font_height + padding) * (i + 1)) + 1;
-                text_print_size(db, boss->name, left_boss, top, font_width, font_height);
+        else {
+            if (show_bosses) {
+                for (int i = 0; i < rows - 1; i++) {
+                    gDPPipeSync(db->p++);
+                    boss_entry_t* boss = &(bosses[CFG_BOSSES[i]]);
+                    if (CFG_DUNGEON_INFO_REWARD_NEED_COMPASS && boss->has_compass && !z64_file.dungeon_items[boss->index].compass) {
+                        continue;
+                    }
+                    int top = start_top + ((font_height + padding) * (i + 1)) + 1;
+                    text_print_size(db, boss->name, left_boss, top, font_width, font_height);
+                }
             }
         }
     }
