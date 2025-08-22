@@ -20,13 +20,13 @@ typedef struct {
 
 typedef struct {
     uint8_t index;
-    uint8_t has_compass;
+    uint8_t has_map;
     char name[10];
 } dungeon_entrance_t;
 
 typedef struct {
     uint8_t index;
-    uint8_t has_compass;
+    uint8_t has_map;
     char name[10];
 } boss_entry_t;
 

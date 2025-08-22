@@ -40,8 +40,8 @@ dungeon_entrance_t dungeon_entrances[] = {
     {  7, 1, "Shadow"},
     {  6, 1, "Spirit"},
 
-    {  8, 0, "BotW"},
-    {  9, 0, "Ice"},
+    {  8, 1, "BotW"},
+    {  9, 1, "Ice"},
     { 11, 0, "GTG"},
     { 13, 0, "Ganon"}
 };
@@ -57,8 +57,8 @@ boss_entry_t bosses[] = {
     {  7, 1, "Bongo"},
     {  6, 1, "Twin"},
 
-    {  8, 0, "-"},
-    {  9, 0, "-"},
+    {  8, 1, "-"},
+    {  9, 1, "-"},
     { 11, 0, "-"},
     { 13, 0, "Ganon"}
 };
@@ -302,7 +302,7 @@ void draw_world_info(z64_disp_buf_t* db) {
             for (int i = 0; i < rows - 1; i++) {
                 gDPPipeSync(db->p++);
                 dungeon_entrance_t* d = &(dungeon_entrances[CFG_DUNGEON_ENTRANCES[i]]);
-                if (CFG_DUNGEON_INFO_REWARD_NEED_COMPASS && d->has_compass && !z64_file.dungeon_items[d->index].compass) {
+                if (d->has_map && !z64_file.dungeon_items[d->index].map) {
                     continue;
                 }
                 int top = start_top + ((font_height + padding) * (i + 1)) + 1;
@@ -317,12 +317,12 @@ void draw_world_info(z64_disp_buf_t* db) {
                  }
             }
         }
-        else {
+        else { 
             if (show_bosses) {
                 for (int i = 0; i < rows - 1; i++) {
                     gDPPipeSync(db->p++);
                     boss_entry_t* boss = &(bosses[CFG_BOSSES[i]]);
-                    if (CFG_DUNGEON_INFO_REWARD_NEED_COMPASS && boss->has_compass && !z64_file.dungeon_items[boss->index].compass) {
+                    if (boss->has_map && !z64_file.dungeon_items[boss->index].map) {
                         continue;
                     }
                     int top = start_top + ((font_height + padding) * (i + 1)) + 1;
