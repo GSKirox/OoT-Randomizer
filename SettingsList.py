@@ -3669,28 +3669,6 @@ class SettingInfos:
         shared          = True,
     )
 
-    enhance_map_compass = Checkbutton(
-        gui_text       = 'Maps and Compasses Give Information',
-        gui_tooltip    = '''\
-            Gives the Map and Compass extra functionality.
-            Map will tell if a dungeon is vanilla or Master Quest.
-            Compass will tell what medallion or stone is within.
-            The Temple of Time Altar will no longer provide
-            information on the location of medallions and stones.
-
-            'Maps/Compasses: Remove': The dungeon information is
-            not available anywhere in the game.
-
-            'Maps/Compasses: Start With': The dungeon information
-            is available immediately from the dungeon menu.
-        ''',
-        default        = False,
-        shared         = True,
-        gui_params     = {
-            'randomize_key': 'randomize_settings',
-        },
-    )
-
     # Detailed Logic (except "Guarantee Reachable Locations")
 
     logic_no_night_tokens_without_suns_song = Checkbutton(

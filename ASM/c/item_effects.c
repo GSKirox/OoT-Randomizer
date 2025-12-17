@@ -289,14 +289,13 @@ void give_progressive_scale(z64_file_t* save, int16_t arg1, int16_t arg2) {
         case 0: // Bronze scale
             extended_savectx.extended_scale = 1;
             break;
-        case 1:
+        case 1: // Silver scale
             extended_savectx.extended_scale = 2;
             save->diving_upgrade = 1;
             break;
-        case 2:
+        case 2: // Gold scale
             extended_savectx.extended_scale = 3;
             save->diving_upgrade = 2;
             break;
     }
-
 }

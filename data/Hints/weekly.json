@@ -13,7 +13,6 @@
         { "location": "Sheik in Forest", "types": ["sometimes"] },
         { "location": "Sheik at Temple", "types": ["sometimes"] },
         { "location": "Sheik in Crater", "types": ["sometimes"] },
-        { "location": "Sheik in Ice Cavern", "types": ["sometimes"] },
         { "location": "Sheik at Colossus", "types": ["sometimes"] },
         { "location": "GF HBA 1500 Points", "types": ["sometimes"] },
         { "location": "GC Maze Left Chest", "types": ["sometimes"] },
@@ -26,9 +25,8 @@
     ],
     "add_items":             [],
     "remove_items":          [
-        { "item": "Zeldas Lullaby", "types": ["woth"] }
+        { "item": "Zeldas Lullaby", "types": ["goal"] }
     ],
-    "dungeons_woth_limit":   2,
     "dungeons_barren_limit": 1,
     "one_hint_per_goal":     true,
     "named_items_required":  true,

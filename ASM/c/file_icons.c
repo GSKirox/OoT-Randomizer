@@ -173,7 +173,7 @@ static const variable_tile_data_t variable_tile_positions[NUM_VARIABLE] = {
     {0, {0x4E, 0x2A}}, // Strength
     {0, {0x5A, 0x2A}}, // Scale
 };
-static uint8_t bronze_scale_marker = 0;
+static bool bronze_scale_marker = false;
 
 typedef struct {
     colorRGB8_t color;
@@ -946,9 +946,9 @@ static void populate_upgrade_equip(const z64_file_t* file, variable_tile_t* tile
 
 static void populate_upgrade_scale(const z64_file_t* file, variable_tile_t* tile, uint8_t value, uint8_t base_tile) {
     tile->tile_index = base_tile;
-    bronze_scale_marker = 0;
+    bronze_scale_marker = false;
     if (value == 0) {
-        bronze_scale_marker = 1;
+        bronze_scale_marker = true;
         tile->enabled = 0;
     }
     if (value == 1) {

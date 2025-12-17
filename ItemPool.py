@@ -1017,6 +1017,9 @@ def get_pool_core(world: World) -> tuple[list[str], dict[str, Item]]:
         for ocarina_button in ocarina_buttons:
             world.state.collect(ItemFactory(ocarina_button, world))
 
+    if not world.settings.add_bronze_scale:
+        world.state.collect(ItemFactory('Progressive Scale', world))
+
     for _ in range(world.settings.random_starting_items_count):
         random_starting_items_pool = configure_random_starting_items_pool(world, pool)
         selected_item = random.choice(random_starting_items_pool)

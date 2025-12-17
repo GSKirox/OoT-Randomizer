@@ -1293,7 +1293,7 @@ class SaveContext:
         "Spirit Medallion"       : {'quest.medallions.spirit'        : True},
         "Shadow Medallion"       : {'quest.medallions.shadow'        : True},
         "Progressive Strength Upgrade" : {'upgrades.strength_upgrade' : None},
-        "Progressive Scale"            : {'extented_scale.medal'   : None},
+        "Progressive Scale"            : {'extented_scale.medal'      : None},
         "Progressive Wallet"           : {'upgrades.wallet'           : None},
         "Gold Skulltula Token" : {
             'quest.gold_skulltula'  : True,
