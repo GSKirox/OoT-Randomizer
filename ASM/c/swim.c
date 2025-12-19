@@ -11,13 +11,14 @@ RespawnByScene respawnsByScene[] = {
     { 0x328, { { -109, 11, -9 }, -29131 }},         // Lake Hylia to Zora Domain
     { 0x560, { { -912, -1326, 3391 }, 0 }},         // Zora Domain to Lake Hylia
     { 0x10E, { { -1500, 150, 1600 }, 32768}},       // Sapphire cutscene to Zora Fountain
+    { 0x1A5, { { -224, -51, -117 }, 16384}},       // Caught by Gerudos as child
 };
 
 void set_new_respawn() {
 
     uint8_t newRespawnTrue = 0;
     int32_t currentEntranceIndex = z64_game.entrance_index;
-    for (uint8_t i = 0; i < 10; i++) {
+    for (uint8_t i = 0; i < 11; i++) {
         // Ensure we always respawn at a safe location.
         if (currentEntranceIndex == respawnsByScene[i].scene_index) {
             z64_Play_SetupRespawnPoint(&z64_game, 0x01, 0xDFF);
