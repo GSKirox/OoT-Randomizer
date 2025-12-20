@@ -313,7 +313,10 @@
         "shuffle_silver_rupees": "vanilla",
         "silver_rupee_pouches_choice": "off",
         "silver_rupee_pouches": [],
-        "enhance_map_compass": [],
+        "enhance_map_compass": [
+            "map_dungeon_location",
+            "compass_reward"
+        ],
         "add_bronze_scale": false,
         "logic_no_night_tokens_without_suns_song": false,
         "disabled_locations": [
@@ -456,7 +459,7 @@
         "bridge_hearts": 20,
         "trials_random": false,
         "trials": 0,
-        "shuffle_ganon_bosskey": "medallions",
+        "shuffle_ganon_bosskey": "remove",
         "ganon_bosskey_medallions": 6,
         "ganon_bosskey_stones": 3,
         "ganon_bosskey_rewards": 9,
@@ -536,7 +539,7 @@
         "key_rings_choice": "off",
         "key_rings": [],
         "keyring_give_bk": false,
-        "shuffle_bosskeys": "dungeon",
+        "shuffle_bosskeys": "vanilla",
         "shuffle_silver_rupees": "vanilla",
         "silver_rupee_pouches_choice": "off",
         "silver_rupee_pouches": [],
@@ -2246,7 +2249,7 @@
         "special_deal_price_min": 0,
         "special_deal_price_max": 200,
         "tokensanity": "off",
-        "shuffle_scrubs": "low",
+        "shuffle_scrubs": "off",
         "shuffle_child_trade": [],
         "adult_trade_shuffle": false,
         "adult_trade_start": [
