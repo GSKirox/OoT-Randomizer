@@ -139,6 +139,19 @@ typedef struct {
   z64_col_water_t  *water;
 } z64_col_hdr_t;
 
+typedef float MtxF_t[4][4];
+typedef union MtxF {
+    MtxF_t mf;
+    struct {
+        // Note: The order displayed here is the transpose of the order in which matrices are typically written.
+        // For example, [xw, yw, zw] is the translation part of the matrix, not [wx, wy, wz].
+        float xx, yx, zx, wx,
+              xy, yy, zy, wy,
+              xz, yz, zz, wz,
+              xw, yw, zw, ww;
+    };
+} MtxF;
+
 typedef enum {
   Z64_ITEM_NULL = -1,
   Z64_ITEM_STICK,
@@ -1364,6 +1377,11 @@ typedef enum {
     /* 0x15 */ CAM_MODE_MAX,
 } CameraModeType;
 
+typedef struct {
+  z64_col_hdr_t   *col_hdr;                /* 0x007C0 */
+  char             unk_09_[0x1460];        /* 0x007C4 */
+} z64_col_ctxt_t;
+
 /* game context */
 typedef struct {
   z64_ctxt_t       common;                 /* 0x00000 */
@@ -1394,8 +1412,7 @@ typedef struct {
   char             unk_07_[0x0010];        /* 0x00798 */
   z64_lighting_t   lighting;               /* 0x007A8 */
   char             unk_08_[0x0008];        /* 0x007B8 */
-  z64_col_hdr_t   *col_hdr;                /* 0x007C0 */
-  char             unk_09_[0x1460];        /* 0x007C4 */
+  z64_col_ctxt_t   col_ctxt;               /* 0x007C0 */
   z64_actor_ctxt_t actor_ctxt;             /* 0x01C24 */
   uint8_t          n_actors_loaded;        /* 0x01C2C */
   char             unk_0A_[0x0003];        /* 0x01C2D */
@@ -1467,7 +1484,8 @@ typedef struct {
   int8_t           room_index;             /* 0x11CBC */
   char             unk_16_[0x000B];        /* 0x11CBD */
   void            *room_ptr;               /* 0x11CC8 */
-  char             unk_17_[0x00D4];        /* 0x11CCC */
+  char             unk_17_[0x0094];        /* 0x11CCC */
+  MtxF             viewProjectionMtxF;     /* 0x11D60 */
   float            billboard_mtx[4][4];    /* 0x11DA0 */
   char             unk_18_[0x0004];        /* 0x11DE0 */
   uint32_t         gameplay_frames;        /* 0x11DE4 */
