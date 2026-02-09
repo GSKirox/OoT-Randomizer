@@ -41,7 +41,7 @@
                 )
                 or can_use(Boomerang)",
             "Bottom of the Well MQ GS Basement": "can_child_attack or is_adult",
-            "Bottom of the Well MQ GS Coffin Room": "
+            "Bottom of the Well MQ GS Coffin Room": "can_swim and
                 (Small_Key_Bottom_of_the_Well, 2) and (can_child_attack or is_adult)",
             "Wall Fairy": "has_bottle and can_use(Slingshot)",
             # This is no longer redundant because Adult has access, and you can use a boomerang or just hit it through the wall

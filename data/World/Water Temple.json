@@ -61,7 +61,7 @@
         "exits": {
             "Water Temple Lowered Water Levels": "can_play(Zeldas_Lullaby)",
             "Water Temple North Basement": "
-                (Iron_Boots or can_play(Zeldas_Lullaby)) and
+                ((Iron_Boots and can_swim) or can_play(Zeldas_Lullaby)) and
                 (Longshot or (logic_water_north_basement and Hover_Boots)) and
                 (Small_Key_Water_Temple, 4)"
         }
@@ -118,7 +118,7 @@
         "dungeon": "Water Temple",
         "locations": {
             "Water Temple Central Pillar Chest": "
-                ((Small_Key_Water_Temple, 5) or Bow or can_use(Dins_Fire)) and
+                ((Small_Key_Water_Temple, 5) or Bow or can_use(Dins_Fire)) and can_swim and
                 Iron_Boots and Zora_Tunic and Hookshot"
         },
         "exits": {
@@ -157,7 +157,7 @@
         "exits": {
             "Water Temple Boss Key Chest Room": "
                 (Small_Key_Water_Temple, 5) and
-                (logic_water_bk_jump_dive or Iron_Boots) and
+                (logic_water_bk_jump_dive or (Iron_Boots and can_swim)) and
                 (logic_water_north_basement_ledge_jump or Hover_Boots or
                     (has_explosives and Progressive_Strength_Upgrade))"
         }

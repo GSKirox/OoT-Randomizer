@@ -14,8 +14,8 @@
         "locations": {
             "Jabu Jabus Belly Boomerang Chest": "is_adult or can_swim or ruto_already_f1_jabu",
             "Jabu Jabus Belly Deku Scrub": "
-                can_stun_deku and can_swim and
-                (can_dive or is_child or logic_jabu_alcove_jump_dive or can_use(Iron_Boots))",
+                can_stun_deku and
+                ((can_dive and is_child) or logic_jabu_alcove_jump_dive or can_use(Iron_Boots))",
             "Jabu Jabus Belly Small Wooden Crate 1": "True",
             "Jabu Jabus Belly Small Wooden Crate 2": "True",
             "Jabu Jabus Belly Basement 2 Octoroks Pot 1": "can_use(Boomerang) or can_use(Hover_Boots)",
@@ -27,7 +27,7 @@
             "Jabu Jabus Belly Basement Switch Room Pot 1": "can_swim or can_use(Hover_Boots)",
             "Jabu Jabus Belly Basement Switch Room Pot 2": "can_swim or can_use(Hover_Boots)",
             "Jabu Jabus Belly Basement Switch Room Pot 3": "can_swim or can_use(Hover_Boots)",
-            "Jabu Jabus Belly GS Water Switch Room": "can_swim or can_use(Hover_Boots) or can_use(Boomerang)",
+            "Jabu Jabus Belly GS Water Switch Room": "can_swim or can_use(Hookshot) or can_use(Hover_Boots) or can_use(Boomerang)",
             "Jabu Jabus Belly GS Lobby Basement Lower": "can_use(Boomerang) or can_use(Hookshot)",
             "Jabu Jabus Belly GS Lobby Basement Upper": "can_use(Boomerang) or can_use(Hookshot)",
             "Fairy Pot": "has_bottle"

@@ -96,7 +96,7 @@
         },
         "exits": {
             "Gerudo Training Ground Underwater": "
-                has_fire_source and Iron_Boots and can_take_damage and
+                has_fire_source and (Iron_Boots and can_swim) and can_take_damage and
                 (logic_fewer_tunic_requirements or Zora_Tunic)"
         }
     },
