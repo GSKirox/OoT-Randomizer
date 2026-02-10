@@ -105,12 +105,12 @@
         "dungeon": "Deku Tree",
         "savewarp": "KF Outside Deku Tree -> Deku Tree Lobby",
         "locations": {
-            "Deku Tree Basement Recovery Heart 1": "can_swim",
-            "Deku Tree Basement Recovery Heart 2": "can_swim",
-            "Deku Tree Basement Recovery Heart 3": "can_swim"
+            "Deku Tree Basement Recovery Heart 1": "can_swim or can_use(Iron_Boots)",
+            "Deku Tree Basement Recovery Heart 2": "can_swim or can_use(Iron_Boots)",
+            "Deku Tree Basement Recovery Heart 3": "can_swim or can_use(Iron_Boots)"
         },
         "exits": {
-            "Deku Tree Basement Ledge": "deku_tree_shortcuts or logic_visible_collisions",
+            "Deku Tree Basement Ledge": "(deku_tree_shortcuts or logic_visible_collisions) and (can_swim or can_use(Iron_Boots))",
             "Queen Gohma Boss Room": "deku_tree_shortcuts or (here(has_shield) and has_soul(Deku_Scrub))"
         }
     }
