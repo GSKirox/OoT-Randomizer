@@ -33,8 +33,8 @@
             "Jabu Jabus Belly MQ Underwater Green Rupee 2": "
                 can_use(Boomerang) or can_dive or can_use(Iron_Boots)",
             "Jabu Jabus Belly MQ Underwater Green Rupee 3": "can_dive or can_use(Iron_Boots)",
-            "Jabu Jabus Belly MQ Elevator Room Pot 1": "can_dive or Iron_Boots or (logic_jabu_alcove_jump_dive and can_swim)",
-            "Jabu Jabus Belly MQ Elevator Room Pot 2": "can_dive or Iron_Boots or (logic_jabu_alcove_jump_dive and can_swim)",
+            "Jabu Jabus Belly MQ Elevator Room Pot 1": "can_dive or (can_swim and (is_child or logic_jabu_alcove_jump_dive or can_use(Iron_Boots)))",
+            "Jabu Jabus Belly MQ Elevator Room Pot 2": "can_dive or (can_swim and (is_child or logic_jabu_alcove_jump_dive or can_use(Iron_Boots)))",
             "Jabu Jabus Belly MQ Elevator Room Cow Wonderitem": "can_use(Slingshot)"
         },
         "exits": {

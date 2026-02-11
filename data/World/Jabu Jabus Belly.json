@@ -15,7 +15,7 @@
             "Jabu Jabus Belly Boomerang Chest": "is_adult or can_swim or ruto_already_f1_jabu",
             "Jabu Jabus Belly Deku Scrub": "
                 can_stun_deku and
-                ((can_dive and is_child) or logic_jabu_alcove_jump_dive or can_use(Iron_Boots))",
+                (can_dive or (can_swim and (is_child or logic_jabu_alcove_jump_dive or can_use(Iron_Boots))))",
             "Jabu Jabus Belly Small Wooden Crate 1": "True",
             "Jabu Jabus Belly Small Wooden Crate 2": "True",
             "Jabu Jabus Belly Basement 2 Octoroks Pot 1": "can_use(Boomerang) or can_use(Hover_Boots)",
