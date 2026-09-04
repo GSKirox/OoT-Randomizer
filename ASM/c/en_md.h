@@ -9,8 +9,8 @@ typedef void (*EnMdActionFunc)(struct EnMd*, z64_game_t*);
 
 typedef struct EnMd {
     /* 0x0000 */ z64_actor_t actor;
-    /* 0x013C */ uint8_t skelanime[0x44];
-    /* 0x0180 */ EnMdActionFunc actionFunc;  
+    /* 0x013C */ SkelAnime skelanime;
+    /* 0x0180 */ EnMdActionFunc actionFunc;
     /* 0x0184 */ ColliderCylinder collider;
     /* 0x01D0 */ NpcInteractInfo interactInfo;
     /* 0x01F8 */ uint8_t messageEntry; // tracks message state changes, like with `BOX_BREAK` or `TEXTID`

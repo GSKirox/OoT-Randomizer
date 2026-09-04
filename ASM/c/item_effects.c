@@ -294,7 +294,6 @@ void move_mido_or_open_mouth() {
             z64_actor_t* curr = z64_game.actorLists[ACTORCAT_NPC].head;
             while (curr != NULL) {
                 if (curr->actor_id == 0x016D) { // Check for EN_Md
-                    draw_debug_int(0, 3);
                     EnMd* Mido = (EnMd*)curr;
                     // First put his current action to Idle, else his Block action will still take effect.
                     Mido->actionFunc = resolve_overlay_addr(&OVL_EnMd_Idle, 0x016D);

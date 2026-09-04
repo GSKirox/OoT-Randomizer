@@ -4,10 +4,14 @@
     "GET_ITEMTABLE": 2151325310,
     "GLOBAL_CONTEXT": 2149352608,
 <<<<<<< HEAD
+<<<<<<< HEAD
     "PAYLOAD_END": 2152286704,
 =======
     "PAYLOAD_END": 2152287520,
 >>>>>>> 1d1c5ac70 (Fast deku)
+=======
+    "PAYLOAD_END": 2152287536,
+>>>>>>> ce404380a (Handle starting with KS and shield + buying shield from shops)
     "PLAYER_ACTOR": 2149427760,
     "PLAYER_WALK_RUN": 2151254976,
     "SAVE_CONTEXT": 2148640208,
