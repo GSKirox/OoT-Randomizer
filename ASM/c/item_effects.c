@@ -4,6 +4,7 @@
 #include "bg_gate_shutter.h"
 #include "save.h"
 #include "en_kz.h"
+#include "bg_ice_shelter.h"
 
 #define rupee_cap ((uint16_t*)0x800F8CEC)
 volatile uint8_t MAX_RUPEES = 0;
@@ -287,6 +288,17 @@ void handle_fast_rutos_letter(z64_file_t* save, int16_t arg1, int16_t arg2) {
                 EnKz* KZ = (EnKz*)curr;
                 EnKzActionFunc EnKz_SetMovedPos = resolve_overlay_addr(&OVL_EnKz_SetMovedPos, 0x0164);
                 EnKz_SetMovedPos(KZ, &z64_game);
+
+                // If we're adult, also move the red ice with him.
+                // The ice should be the only child from the main actor.
+                if (LINK_IS_ADULT && KZ->actor.child != NULL) {
+                    BgIceShelter* red_ice = (BgIceShelter*)KZ->actor.child;
+                    // This is the only difference between the beginning and end placement of King Zora.
+                    red_ice->dyna.actor.pos_world.x -= 97;
+                    // The red ice actor doesn't update its collision on the fly, so update it manually.
+                    Collider_UpdateCylinder(&red_ice->dyna.actor, &red_ice->cylinder1);
+                    Collider_UpdateCylinder(&red_ice->dyna.actor, &red_ice->cylinder2);
+                }
                 break;
             }
             curr = curr->next;
