@@ -3,7 +3,8 @@
         "region_name": "Root",
         "hint": "ROOT",
         "events": {
-            "Kakariko Village Gate Open": "open_kakariko == 'open' or (open_kakariko == 'zelda' and Zeldas_Letter)"
+            "Kakariko Village Gate Open": "open_kakariko == 'open' or (open_kakariko == 'zelda' and Zeldas_Letter)",
+            "Showed Mido Sword & Shield": "open_forest == 'fast' and Kokiri_Sword and Deku_Shield"
         },
         "locations": {
             "Gift from Sages": "can_receive_ganon_bosskey"
@@ -12,7 +13,6 @@
             "Root Exits": "is_starting_age or Time_Travel",
             "HC Garden Skippable Locations": "skip_child_zelda",
             "Beyond Door of Time Skippable Locations": "skip_reward_from_rauru != 'not_free'",
-            "Showed Mido Sword & Shield Region": "Kokiri_Sword and Deku_Shield and open_forest == 'fast'",
             # Hack to make ALR work if hideout entrances are unshuffled
             "GF Above Jail Child Locations": "shuffle_gerudo_fortress_heart_piece == 'remove' or not shuffle_hideout_entrances"
         }
@@ -153,6 +153,9 @@
         "region_name": "Kokiri Forest",
         "scene": "Kokiri Forest",
         "hint": "KOKIRI_FOREST",
+        "events": {
+            "Showed Mido Sword & Shield": "(is_child or open_forest == 'fast') and Kokiri_Sword and Deku_Shield"
+        },
         "locations": {
             "KF Kokiri Sword Chest": "is_child",
             "KF Grass Near Ramp Green Rupee 1": "is_child",
@@ -204,14 +207,16 @@
                 or can_mega or can_superslide or can_hess or can_hover",
             "Lost Woods": "True",
             "LW Bridge From Forest": "can_leave_forest",
-            "KF Storms Grotto": "can_open_storm_grotto",
-            "Showed Mido Sword & Shield Region": "is_child and Kokiri_Sword and Deku_Shield and (open_forest == 'closed' or open_forest == 'closed_deku')"
+            "KF Storms Grotto": "can_open_storm_grotto"
         }
     },
     {
         "region_name": "KF Outside Deku Tree",
         "scene": "Kokiri Forest",
         "hint": "KOKIRI_FOREST",
+        "events": {
+            "Showed Mido Sword & Shield": "(is_child or open_forest == 'fast') and Kokiri_Sword and Deku_Shield"
+        },
         "locations": {
             # The adult Babas despawn after Phantom Ganon is defeated, and so can't be relied on for repeatable drops.
             "Deku Baba Sticks": "
@@ -232,15 +237,7 @@
                 or (can_hess and can_use(Hover_Boots))
                 or at('Kokiri Forest', can_hover or (can_use(Hover_Boots) and (can_megajump or can_superslide or can_hess)))",
             "Kokiri Forest": "is_adult or open_forest == 'open' or 'Showed Mido Sword & Shield' or can_hess
-                or can_superslide or can_mega",
-            "Showed Mido Sword & Shield Region": "is_child and Kokiri_Sword and Deku_Shield and (open_forest == 'closed' or open_forest == 'closed_deku')"
-        }
-    },    
-    {
-        "region_name": "Showed Mido Sword & Shield Region",
-        "scene": "Kokiri Forest",
-        "events": {
-            "Showed Mido Sword & Shield": "True"
+                or can_superslide or can_mega"
         }
     },
     {
