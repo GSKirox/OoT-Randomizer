@@ -154,7 +154,7 @@
         "scene": "Kokiri Forest",
         "hint": "KOKIRI_FOREST",
         "events": {
-            "Showed Mido Sword & Shield": "(is_child or open_forest == 'fast') and Kokiri_Sword and Deku_Shield"
+            "Showed Mido Sword & Shield": "(is_child and (open_forest == 'closed_deku' or open_forest == 'closed')) and Kokiri_Sword and Deku_Shield"
         },
         "locations": {
             "KF Kokiri Sword Chest": "is_child",
@@ -215,7 +215,7 @@
         "scene": "Kokiri Forest",
         "hint": "KOKIRI_FOREST",
         "events": {
-            "Showed Mido Sword & Shield": "(is_child or open_forest == 'fast') and Kokiri_Sword and Deku_Shield"
+            "Showed Mido Sword & Shield": "(is_child and (open_forest == 'closed_deku' or open_forest == 'closed')) and Kokiri_Sword and Deku_Shield"
         },
         "locations": {
             # The adult Babas despawn after Phantom Ganon is defeated, and so can't be relied on for repeatable drops.
