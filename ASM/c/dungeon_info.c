@@ -211,7 +211,7 @@ void draw_world_info(z64_disp_buf_t* db, z64_file_t* file) {
     z64_file_t* current_file = &z64_file;
     // This is for file select because we need to look at the sram buffer and not the general file pointer for accurate data.
     if (file != NULL) {
-         current_file = file;
+        current_file = file;
     }
 
     if (!mixed) {
@@ -254,6 +254,7 @@ void draw_world_info(z64_disp_buf_t* db, z64_file_t* file) {
             uint16_t left_boss = show_dungeons ? left + 2*60 : left + 60;
 
             // Draw background
+            gDPPipeSync(db->p++);
             gDPSetCombineMode(db->p++, G_CC_PRIMITIVE, G_CC_PRIMITIVE);
             for (int i = 0; i < rows; i++) {
                 uint16_t line_top = bg_top + i * (font_height + padding) + padding;
